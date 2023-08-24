@@ -304,6 +304,7 @@ mod _vectors {
     ];
 }
 pub const UID: uid::Uid = unsafe { uid::Uid::from_ptr(0x1fff_f7ac as usize as _) };
+pub const VREFINTCAL: vrefintcal::Vrefintcal = unsafe { vrefintcal::Vrefintcal::from_ptr(0x1fff_f7ba as usize as _) };
 pub const TIM2: timer::TimGp32 = unsafe { timer::TimGp32::from_ptr(0x4000_0000 as usize as _) };
 pub const TIM3: timer::TimGp16 = unsafe { timer::TimGp16::from_ptr(0x4000_0400 as usize as _) };
 pub const TIM4: timer::TimGp16 = unsafe { timer::TimGp16::from_ptr(0x4000_0800 as usize as _) };
@@ -332,7 +333,7 @@ pub const SYSCFG: syscfg::Syscfg = unsafe { syscfg::Syscfg::from_ptr(0x4001_0000
 pub const COMP1: *mut () = 0x4001_001c as usize as _;
 pub const COMP2: *mut () = 0x4001_001e as usize as _;
 pub const EXTI: exti::Exti = unsafe { exti::Exti::from_ptr(0x4001_0400 as usize as _) };
-pub const ADC1: *mut () = 0x4001_2400 as usize as _;
+pub const ADC1: adc::Adc = unsafe { adc::Adc::from_ptr(0x4001_2400 as usize as _) };
 pub const ADC_COMMON: *mut () = 0x4001_2400 as usize as _;
 pub const SPI1: spi::Spi = unsafe { spi::Spi::from_ptr(0x4001_3000 as usize as _) };
 pub const USART1: usart::Usart = unsafe { usart::Usart::from_ptr(0x4001_3800 as usize as _) };
@@ -366,6 +367,8 @@ pub use Interrupt as interrupt;
 pub fn GPIO(n: usize) -> gpio::Gpio {
     unsafe { gpio::Gpio::from_ptr((1207959552 + 1024 * n) as _) }
 }
+#[path = "../../peripherals/adc_f3_v2.rs"]
+pub mod adc;
 #[path = "../../peripherals/bdma_v1.rs"]
 pub mod bdma;
 #[path = "../../peripherals/can_bxcan.rs"]
@@ -388,7 +391,7 @@ pub mod i2c;
 pub mod iwdg;
 #[path = "../../peripherals/pwr_f3.rs"]
 pub mod pwr;
-#[path = "../../peripherals/rcc_f3.rs"]
+#[path = "../../peripherals/rcc_f3_v2.rs"]
 pub mod rcc;
 #[path = "../../peripherals/rtc_v2f3.rs"]
 pub mod rtc;
@@ -402,6 +405,8 @@ pub mod timer;
 pub mod uid;
 #[path = "../../peripherals/usart_v3.rs"]
 pub mod usart;
+#[path = "../../peripherals/vrefintcal_v1.rs"]
+pub mod vrefintcal;
 #[path = "../../peripherals/wwdg_v1.rs"]
 pub mod wwdg;
 pub const CORE_INDEX: usize = 0;

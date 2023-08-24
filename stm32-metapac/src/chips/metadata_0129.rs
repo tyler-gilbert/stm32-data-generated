@@ -12,11 +12,11 @@ const PERIPHERALS: &'static [Peripheral] = &[
             clock: "AHB1",
             enable: Some(PeripheralRccRegister {
                 register: "AHBENR",
-                field: "ADC1EN",
+                field: "ADC12EN",
             }),
             reset: Some(PeripheralRccRegister {
                 register: "AHBRSTR",
-                field: "ADC1RST",
+                field: "ADC12RST",
             }),
         }),
         pins: &[
@@ -61,7 +61,17 @@ const PERIPHERALS: &'static [Peripheral] = &[
             version: "f3",
             block: "ADC",
         }),
-        rcc: None,
+        rcc: Some(PeripheralRcc {
+            clock: "AHB1",
+            enable: Some(PeripheralRccRegister {
+                register: "AHBENR",
+                field: "ADC12EN",
+            }),
+            reset: Some(PeripheralRccRegister {
+                register: "AHBRSTR",
+                field: "ADC12RST",
+            }),
+        }),
         pins: &[
             PeripheralPin {
                 pin: "PA4",
@@ -118,7 +128,17 @@ const PERIPHERALS: &'static [Peripheral] = &[
             version: "f3",
             block: "ADC",
         }),
-        rcc: None,
+        rcc: Some(PeripheralRcc {
+            clock: "AHB1",
+            enable: Some(PeripheralRccRegister {
+                register: "AHBENR",
+                field: "ADC34EN",
+            }),
+            reset: Some(PeripheralRccRegister {
+                register: "AHBRSTR",
+                field: "ADC34RST",
+            }),
+        }),
         pins: &[
             PeripheralPin {
                 pin: "PB0",
@@ -149,6 +169,19 @@ const PERIPHERALS: &'static [Peripheral] = &[
         }],
     },
     Peripheral {
+        name: "ADC3_COMMON",
+        address: 1342179072,
+        registers: Some(PeripheralRegisters {
+            kind: "adccommon",
+            version: "f3",
+            block: "ADC_COMMON",
+        }),
+        rcc: None,
+        pins: &[],
+        dma_channels: &[],
+        interrupts: &[],
+    },
+    Peripheral {
         name: "ADC4",
         address: 1342178560,
         registers: Some(PeripheralRegisters {
@@ -156,7 +189,17 @@ const PERIPHERALS: &'static [Peripheral] = &[
             version: "f3",
             block: "ADC",
         }),
-        rcc: None,
+        rcc: Some(PeripheralRcc {
+            clock: "AHB1",
+            enable: Some(PeripheralRccRegister {
+                register: "AHBENR",
+                field: "ADC34EN",
+            }),
+            reset: Some(PeripheralRccRegister {
+                register: "AHBRSTR",
+                field: "ADC34RST",
+            }),
+        }),
         pins: &[
             PeripheralPin {
                 pin: "PB12",
@@ -198,7 +241,11 @@ const PERIPHERALS: &'static [Peripheral] = &[
     Peripheral {
         name: "ADC_COMMON",
         address: 1342178048,
-        registers: None,
+        registers: Some(PeripheralRegisters {
+            kind: "adccommon",
+            version: "f3",
+            block: "ADC_COMMON",
+        }),
         rcc: None,
         pins: &[],
         dma_channels: &[],
@@ -638,7 +685,10 @@ const PERIPHERALS: &'static [Peripheral] = &[
                 register: "APB2ENR",
                 field: "DBGMCUEN",
             }),
-            reset: None,
+            reset: Some(PeripheralRccRegister {
+                register: "APB2RSTR",
+                field: "DBGMCURST",
+            }),
         }),
         pins: &[],
         dma_channels: &[],
@@ -3505,6 +3555,19 @@ const PERIPHERALS: &'static [Peripheral] = &[
             kind: "usbram",
             version: "16x1_512",
             block: "USBRAM",
+        }),
+        rcc: None,
+        pins: &[],
+        dma_channels: &[],
+        interrupts: &[],
+    },
+    Peripheral {
+        name: "VREFINTCAL",
+        address: 536868794,
+        registers: Some(PeripheralRegisters {
+            kind: "vrefintcal",
+            version: "v1",
+            block: "VREFINTCAL",
         }),
         rcc: None,
         pins: &[],

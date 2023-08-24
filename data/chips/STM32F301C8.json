@@ -303,11 +303,11 @@
                         "clock": "AHB1",
                         "enable": {
                             "register": "AHBENR",
-                            "field": "ADC1EN"
+                            "field": "ADC12EN"
                         },
                         "reset": {
                             "register": "AHBRSTR",
-                            "field": "ADC1RST"
+                            "field": "ADC12RST"
                         }
                     },
                     "pins": [
@@ -371,7 +371,12 @@
                 },
                 {
                     "name": "ADC_COMMON",
-                    "address": 1342178048
+                    "address": 1342178048,
+                    "registers": {
+                        "kind": "adccommon",
+                        "version": "f3",
+                        "block": "ADC_COMMON"
+                    }
                 },
                 {
                     "name": "COMP2",
@@ -537,6 +542,10 @@
                         "enable": {
                             "register": "APB2ENR",
                             "field": "DBGMCUEN"
+                        },
+                        "reset": {
+                            "register": "APB2RSTR",
+                            "field": "DBGMCURST"
                         }
                     }
                 },
@@ -2453,6 +2462,15 @@
                             "channel": "DMA1_CH3"
                         }
                     ]
+                },
+                {
+                    "name": "VREFINTCAL",
+                    "address": 536868794,
+                    "registers": {
+                        "kind": "vrefintcal",
+                        "version": "v1",
+                        "block": "VREFINTCAL"
+                    }
                 },
                 {
                     "name": "WWDG",

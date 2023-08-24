@@ -12,11 +12,11 @@ const PERIPHERALS: &'static [Peripheral] = &[
             clock: "AHB1",
             enable: Some(PeripheralRccRegister {
                 register: "AHBENR",
-                field: "ADC1EN",
+                field: "ADC12EN",
             }),
             reset: Some(PeripheralRccRegister {
                 register: "AHBRSTR",
-                field: "ADC1RST",
+                field: "ADC12RST",
             }),
         }),
         pins: &[
@@ -71,7 +71,17 @@ const PERIPHERALS: &'static [Peripheral] = &[
             version: "f3",
             block: "ADC",
         }),
-        rcc: None,
+        rcc: Some(PeripheralRcc {
+            clock: "AHB1",
+            enable: Some(PeripheralRccRegister {
+                register: "AHBENR",
+                field: "ADC12EN",
+            }),
+            reset: Some(PeripheralRccRegister {
+                register: "AHBRSTR",
+                field: "ADC12RST",
+            }),
+        }),
         pins: &[
             PeripheralPin {
                 pin: "PA4",
@@ -118,7 +128,11 @@ const PERIPHERALS: &'static [Peripheral] = &[
     Peripheral {
         name: "ADC_COMMON",
         address: 1342178048,
-        registers: None,
+        registers: Some(PeripheralRegisters {
+            kind: "adccommon",
+            version: "f3",
+            block: "ADC_COMMON",
+        }),
         rcc: None,
         pins: &[],
         dma_channels: &[],
@@ -360,7 +374,10 @@ const PERIPHERALS: &'static [Peripheral] = &[
                 register: "APB2ENR",
                 field: "DBGMCUEN",
             }),
-            reset: None,
+            reset: Some(PeripheralRccRegister {
+                register: "APB2RSTR",
+                field: "DBGMCURST",
+            }),
         }),
         pins: &[],
         dma_channels: &[],
@@ -2308,6 +2325,19 @@ const PERIPHERALS: &'static [Peripheral] = &[
             signal: "GLOBAL",
             interrupt: "USART2",
         }],
+    },
+    Peripheral {
+        name: "VREFINTCAL",
+        address: 536868794,
+        registers: Some(PeripheralRegisters {
+            kind: "vrefintcal",
+            version: "v1",
+            block: "VREFINTCAL",
+        }),
+        rcc: None,
+        pins: &[],
+        dma_channels: &[],
+        interrupts: &[],
     },
     Peripheral {
         name: "WWDG",

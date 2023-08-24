@@ -382,6 +382,17 @@ pub mod regs {
         pub fn set_clr_crcend(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 27usize)) | (((val as u32) & 0x01) << 27usize);
         }
+        #[doc = "Bank 1 CRC read error clear bit"]
+        #[inline(always)]
+        pub const fn clr_crcrderr(&self) -> bool {
+            let val = (self.0 >> 28usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Bank 1 CRC read error clear bit"]
+        #[inline(always)]
+        pub fn set_clr_crcrderr(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 28usize)) | (((val as u32) & 0x01) << 28usize);
+        }
     }
     impl Default for Ccr {
         #[inline(always)]
@@ -613,6 +624,17 @@ pub mod regs {
         #[inline(always)]
         pub fn set_crcendie(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 27usize)) | (((val as u32) & 0x01) << 27usize);
+        }
+        #[doc = "Bank 1 CRC read error interrupt enable bit"]
+        #[inline(always)]
+        pub const fn crcrderrie(&self) -> bool {
+            let val = (self.0 >> 28usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Bank 1 CRC read error interrupt enable bit"]
+        #[inline(always)]
+        pub fn set_crcrderrie(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 28usize)) | (((val as u32) & 0x01) << 28usize);
         }
     }
     impl Default for Cr {
@@ -1630,6 +1652,17 @@ pub mod regs {
         #[inline(always)]
         pub fn set_crcend(&mut self, val: bool) {
             self.0 = (self.0 & !(0x01 << 27usize)) | (((val as u32) & 0x01) << 27usize);
+        }
+        #[doc = "Bank 1 CRC read error flag"]
+        #[inline(always)]
+        pub const fn crcrderr(&self) -> bool {
+            let val = (self.0 >> 28usize) & 0x01;
+            val != 0
+        }
+        #[doc = "Bank 1 CRC read error flag"]
+        #[inline(always)]
+        pub fn set_crcrderr(&mut self, val: bool) {
+            self.0 = (self.0 & !(0x01 << 28usize)) | (((val as u32) & 0x01) << 28usize);
         }
     }
     impl Default for Sr {

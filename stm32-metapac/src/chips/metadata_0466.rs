@@ -8,7 +8,17 @@ const PERIPHERALS: &'static [Peripheral] = &[
             version: "v4",
             block: "ADC",
         }),
-        rcc: None,
+        rcc: Some(PeripheralRcc {
+            clock: "AHB1",
+            enable: Some(PeripheralRccRegister {
+                register: "AHB1ENR",
+                field: "ADC12EN",
+            }),
+            reset: Some(PeripheralRccRegister {
+                register: "AHB1RSTR",
+                field: "ADC12RST",
+            }),
+        }),
         pins: &[
             PeripheralPin {
                 pin: "PA0",
@@ -131,7 +141,17 @@ const PERIPHERALS: &'static [Peripheral] = &[
             version: "v4",
             block: "ADC",
         }),
-        rcc: None,
+        rcc: Some(PeripheralRcc {
+            clock: "AHB1",
+            enable: Some(PeripheralRccRegister {
+                register: "AHB1ENR",
+                field: "ADC12EN",
+            }),
+            reset: Some(PeripheralRccRegister {
+                register: "AHB1RSTR",
+                field: "ADC12RST",
+            }),
+        }),
         pins: &[
             PeripheralPin {
                 pin: "PA6",
@@ -1581,7 +1601,7 @@ const PERIPHERALS: &'static [Peripheral] = &[
         address: 1375739904,
         registers: Some(PeripheralRegisters {
             kind: "flash",
-            version: "h7",
+            version: "h7ab",
             block: "FLASH",
         }),
         rcc: None,

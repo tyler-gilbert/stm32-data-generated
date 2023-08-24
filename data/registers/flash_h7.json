@@ -282,6 +282,12 @@
         "description": "Bank 1 CRCEND1 flag clear bit",
         "bit_offset": 27,
         "bit_size": 1
+      },
+      {
+        "name": "CLR_CRCRDERR",
+        "description": "Bank 1 CRC read error clear bit",
+        "bit_offset": 28,
+        "bit_size": 1
       }
     ]
   },
@@ -406,6 +412,12 @@
         "name": "CRCENDIE",
         "description": "Bank 1 end of CRC calculation interrupt enable bit",
         "bit_offset": 27,
+        "bit_size": 1
+      },
+      {
+        "name": "CRCRDERRIE",
+        "description": "Bank 1 CRC read error interrupt enable bit",
+        "bit_offset": 28,
         "bit_size": 1
       }
     ]
@@ -936,6 +948,12 @@
         "name": "CRCEND",
         "description": "Bank 1 CRC-complete flag",
         "bit_offset": 27,
+        "bit_size": 1
+      },
+      {
+        "name": "CRCRDERR",
+        "description": "Bank 1 CRC read error flag",
+        "bit_offset": 28,
         "bit_size": 1
       }
     ]

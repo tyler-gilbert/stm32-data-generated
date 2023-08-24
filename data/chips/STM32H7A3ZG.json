@@ -322,6 +322,17 @@
                         "version": "v4",
                         "block": "ADC"
                     },
+                    "rcc": {
+                        "clock": "AHB1",
+                        "enable": {
+                            "register": "AHB1ENR",
+                            "field": "ADC12EN"
+                        },
+                        "reset": {
+                            "register": "AHB1RSTR",
+                            "field": "ADC12RST"
+                        }
+                    },
                     "pins": [
                         {
                             "pin": "PA0",
@@ -437,6 +448,17 @@
                         "kind": "adc",
                         "version": "v4",
                         "block": "ADC"
+                    },
+                    "rcc": {
+                        "clock": "AHB1",
+                        "enable": {
+                            "register": "AHB1ENR",
+                            "field": "ADC12EN"
+                        },
+                        "reset": {
+                            "register": "AHB1RSTR",
+                            "field": "ADC12RST"
+                        }
                     },
                     "pins": [
                         {
@@ -1827,7 +1849,7 @@
                     "address": 1375739904,
                     "registers": {
                         "kind": "flash",
-                        "version": "h7",
+                        "version": "h7ab",
                         "block": "FLASH"
                     },
                     "interrupts": [
@@ -4220,7 +4242,12 @@
                             "field": "RNGRST"
                         }
                     },
-                    "interrupts": []
+                    "interrupts": [
+                        {
+                            "signal": "GLOBAL",
+                            "interrupt": "RNG"
+                        }
+                    ]
                 },
                 {
                     "name": "RTC",

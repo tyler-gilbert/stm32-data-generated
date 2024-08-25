@@ -680,7 +680,7 @@
         "description": "System Clock Switch Status",
         "bit_offset": 2,
         "bit_size": 2,
-        "enum": "SWS"
+        "enum": "SW"
       },
       {
         "name": "HPRE",
@@ -694,14 +694,14 @@
         "description": "APB Low speed prescaler (APB1)",
         "bit_offset": 8,
         "bit_size": 3,
-        "enum": "PPRE1"
+        "enum": "PPRE"
       },
       {
         "name": "PPRE2",
         "description": "APB High speed prescaler (APB2)",
         "bit_offset": 11,
         "bit_size": 3,
-        "enum": "PPRE1"
+        "enum": "PPRE"
       },
       {
         "name": "ADCPRE",
@@ -739,11 +739,11 @@
         "enum": "USBPRE"
       },
       {
-        "name": "MCO",
+        "name": "MCOSEL",
         "description": "Microcontroller clock output",
         "bit_offset": 24,
         "bit_size": 3,
-        "enum": "MCO"
+        "enum": "MCOSEL"
       }
     ]
   },
@@ -1053,16 +1053,16 @@
       }
     ]
   },
-  "enum/MCO": {
+  "enum/MCOSEL": {
     "bit_size": 3,
     "variants": [
       {
-        "name": "NoMCO",
+        "name": "DISABLE",
         "description": "MCO output disabled, no clock on MCO",
         "value": 0
       },
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "System clock selected",
         "value": 4
       },
@@ -1160,11 +1160,6 @@
         "name": "Mul16",
         "description": "PLL input clock x16",
         "value": 14
-      },
-      {
-        "name": "Mul16x",
-        "description": "PLL input clock x16",
-        "value": 15
       }
     ]
   },
@@ -1198,7 +1193,7 @@
       }
     ]
   },
-  "enum/PPRE1": {
+  "enum/PPRE": {
     "bit_size": 3,
     "variants": [
       {
@@ -1232,7 +1227,7 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "NoClock",
+        "name": "DISABLE",
         "description": "No clock",
         "value": 0
       },
@@ -1267,28 +1262,8 @@
         "value": 1
       },
       {
-        "name": "PLL",
+        "name": "PLL1_P",
         "description": "PLL selected as system clock",
-        "value": 2
-      }
-    ]
-  },
-  "enum/SWS": {
-    "bit_size": 2,
-    "variants": [
-      {
-        "name": "HSI",
-        "description": "HSI oscillator used as system clock",
-        "value": 0
-      },
-      {
-        "name": "HSE",
-        "description": "HSE oscillator used as system clock",
-        "value": 1
-      },
-      {
-        "name": "PLL",
-        "description": "PLL used as system clock",
         "value": 2
       }
     ]
@@ -1297,12 +1272,12 @@
     "bit_size": 1,
     "variants": [
       {
-        "name": "DIV1_5",
+        "name": "Div1_5",
         "description": "PLL clock is divided by 1.5",
         "value": 0
       },
       {
-        "name": "DIV1",
+        "name": "Div1",
         "description": "PLL clock is not divided",
         "value": 1
       }

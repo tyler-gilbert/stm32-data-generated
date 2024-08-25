@@ -12,15 +12,13 @@
         "name": "KEYR",
         "description": "Flash key register",
         "byte_offset": 4,
-        "access": "Write",
-        "fieldset": "KEYR"
+        "access": "Write"
       },
       {
         "name": "OPTKEYR",
         "description": "Flash option key register",
         "byte_offset": 8,
-        "access": "Write",
-        "fieldset": "OPTKEYR"
+        "access": "Write"
       },
       {
         "name": "SR",
@@ -49,7 +47,7 @@
         "name": "LATENCY",
         "description": "Latency",
         "bit_offset": 0,
-        "bit_size": 3,
+        "bit_size": 4,
         "enum": "LATENCY"
       },
       {
@@ -144,17 +142,6 @@
       }
     ]
   },
-  "fieldset/KEYR": {
-    "description": "Flash key register",
-    "fields": [
-      {
-        "name": "KEY",
-        "description": "FPEC key",
-        "bit_offset": 0,
-        "bit_size": 32
-      }
-    ]
-  },
   "fieldset/OPTCR": {
     "description": "Flash option control register",
     "fields": [
@@ -220,17 +207,6 @@
       }
     ]
   },
-  "fieldset/OPTKEYR": {
-    "description": "Flash option key register",
-    "fields": [
-      {
-        "name": "OPTKEY",
-        "description": "Option byte key",
-        "bit_offset": 0,
-        "bit_size": 32
-      }
-    ]
-  },
   "fieldset/SR": {
     "description": "Status register",
     "fields": [
@@ -279,7 +255,7 @@
     ]
   },
   "enum/LATENCY": {
-    "bit_size": 3,
+    "bit_size": 4,
     "variants": [
       {
         "name": "WS0",

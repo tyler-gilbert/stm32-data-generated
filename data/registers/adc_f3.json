@@ -183,7 +183,8 @@
         "name": "DMACFG",
         "description": "Direct memory access configuration",
         "bit_offset": 1,
-        "bit_size": 1
+        "bit_size": 1,
+        "enum": "DMACFG"
       },
       {
         "name": "RES",
@@ -203,8 +204,7 @@
         "name": "EXTSEL",
         "description": "External trigger selection for regular group",
         "bit_offset": 6,
-        "bit_size": 4,
-        "enum": "EXTSEL"
+        "bit_size": 4
       },
       {
         "name": "EXTEN",
@@ -221,7 +221,7 @@
       },
       {
         "name": "CONT",
-        "description": "Single / continuous conversion mode for regular conversions",
+        "description": "Continuous conversion",
         "bit_offset": 13,
         "bit_size": 1
       },
@@ -641,8 +641,7 @@
         "name": "JEXTSEL",
         "description": "External Trigger Selection for injected group",
         "bit_offset": 2,
-        "bit_size": 4,
-        "enum": "JEXTSEL"
+        "bit_size": 4
       },
       {
         "name": "JEXTEN",
@@ -900,6 +899,21 @@
       }
     ]
   },
+  "enum/DMACFG": {
+    "bit_size": 1,
+    "variants": [
+      {
+        "name": "OneShot",
+        "description": "DMA One Shot mode selected",
+        "value": 0
+      },
+      {
+        "name": "Circular",
+        "description": "DMA Circular mode selected",
+        "value": 1
+      }
+    ]
+  },
   "enum/EXTEN": {
     "bit_size": 2,
     "variants": [
@@ -922,81 +936,6 @@
         "name": "BothEdges",
         "description": "Trigger detection on both the rising and falling edges",
         "value": 3
-      }
-    ]
-  },
-  "enum/EXTSEL": {
-    "bit_size": 4,
-    "variants": [
-      {
-        "name": "TIM1_CC1",
-        "description": "Timer 1 CC1 event",
-        "value": 0
-      },
-      {
-        "name": "TIM1_CC2",
-        "description": "Timer 1 CC2 event",
-        "value": 1
-      },
-      {
-        "name": "TIM1_CC3",
-        "description": "Timer 1 CC3 event",
-        "value": 2
-      },
-      {
-        "name": "TIM2_CC2",
-        "description": "Timer 2 CC2 event",
-        "value": 3
-      },
-      {
-        "name": "TIM3_TRGO",
-        "description": "Timer 3 TRGO event",
-        "value": 4
-      },
-      {
-        "name": "EXTI11",
-        "description": "EXTI line 11",
-        "value": 6
-      },
-      {
-        "name": "HRTIM_ADCTRG1",
-        "description": "HRTIM_ADCTRG1 event",
-        "value": 7
-      },
-      {
-        "name": "HRTIM_ADCTRG3",
-        "description": "HRTIM_ADCTRG3 event",
-        "value": 8
-      },
-      {
-        "name": "TIM1_TRGO",
-        "description": "Timer 1 TRGO event",
-        "value": 9
-      },
-      {
-        "name": "TIM1_TRGO2",
-        "description": "Timer 1 TRGO2 event",
-        "value": 10
-      },
-      {
-        "name": "TIM2_TRGO",
-        "description": "Timer 2 TRGO event",
-        "value": 11
-      },
-      {
-        "name": "TIM6_TRGO",
-        "description": "Timer 6 TRGO event",
-        "value": 13
-      },
-      {
-        "name": "TIM15_TRGO",
-        "description": "Timer 15 TRGO event",
-        "value": 14
-      },
-      {
-        "name": "TIM3_CC4",
-        "description": "Timer 3 CC4 event",
-        "value": 15
       }
     ]
   },
@@ -1025,81 +964,6 @@
       }
     ]
   },
-  "enum/JEXTSEL": {
-    "bit_size": 4,
-    "variants": [
-      {
-        "name": "TIM1_TRGO",
-        "description": "Timer 1 TRGO event",
-        "value": 0
-      },
-      {
-        "name": "TIM1_CC4",
-        "description": "Timer 1 CC4 event",
-        "value": 1
-      },
-      {
-        "name": "TIM2_TRGO",
-        "description": "Timer 2 TRGO event",
-        "value": 2
-      },
-      {
-        "name": "TIM2_CC1",
-        "description": "Timer 2 CC1 event",
-        "value": 3
-      },
-      {
-        "name": "TIM3_CC4",
-        "description": "Timer 3 CC4 event",
-        "value": 4
-      },
-      {
-        "name": "EXTI15",
-        "description": "EXTI line 15",
-        "value": 6
-      },
-      {
-        "name": "TIM1_TRGO2",
-        "description": "Timer 1 TRGO2 event",
-        "value": 8
-      },
-      {
-        "name": "HRTIM_ADCTRG2",
-        "description": "HRTIM_ADCTRG2 event",
-        "value": 9
-      },
-      {
-        "name": "HRTIM_ADCTRG4",
-        "description": "HRTIM_ADCTRG4 event",
-        "value": 10
-      },
-      {
-        "name": "TIM3_CC3",
-        "description": "Timer 3 CC3 event",
-        "value": 11
-      },
-      {
-        "name": "TIM3_TRGO",
-        "description": "Timer 3 TRGO event",
-        "value": 12
-      },
-      {
-        "name": "TIM3_CC1",
-        "description": "Timer 3 CC1 event",
-        "value": 13
-      },
-      {
-        "name": "TIM6_TRGO",
-        "description": "Timer 6 TRGO event",
-        "value": 14
-      },
-      {
-        "name": "TIM15_TRGO",
-        "description": "Timer 15 TRGO event",
-        "value": 15
-      }
-    ]
-  },
   "enum/JQM": {
     "bit_size": 1,
     "variants": [
@@ -1119,22 +983,22 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "TwelveBit",
+        "name": "Bits12",
         "description": "12-bit resolution",
         "value": 0
       },
       {
-        "name": "TenBit",
+        "name": "Bits10",
         "description": "10-bit resolution",
         "value": 1
       },
       {
-        "name": "EightBit",
+        "name": "Bits8",
         "description": "8-bit resolution",
         "value": 2
       },
       {
-        "name": "SixBit",
+        "name": "Bits6",
         "description": "6-bit resolution",
         "value": 3
       }

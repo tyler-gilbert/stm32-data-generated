@@ -289,9 +289,10 @@
       },
       {
         "name": "DMACFG",
-        "description": "ADC DMA transfer configuration",
+        "description": "Direct memory access configuration",
         "bit_offset": 1,
-        "bit_size": 1
+        "bit_size": 1,
+        "enum": "DMACFG"
       },
       {
         "name": "SCANDIR",
@@ -332,7 +333,7 @@
       },
       {
         "name": "CONT",
-        "description": "ADC group regular continuous conversion mode",
+        "description": "Continuous conversion",
         "bit_offset": 13,
         "bit_size": 1
       },
@@ -932,26 +933,41 @@
       }
     ]
   },
+  "enum/DMACFG": {
+    "bit_size": 1,
+    "variants": [
+      {
+        "name": "OneShot",
+        "description": "DMA One Shot mode selected",
+        "value": 0
+      },
+      {
+        "name": "Circular",
+        "description": "DMA Circular mode selected",
+        "value": 1
+      }
+    ]
+  },
   "enum/RES": {
     "bit_size": 2,
     "variants": [
       {
-        "name": "TwelveBit",
+        "name": "Bits12",
         "description": "12-bit resolution",
         "value": 0
       },
       {
-        "name": "TenBit",
+        "name": "Bits10",
         "description": "10-bit resolution",
         "value": 1
       },
       {
-        "name": "EightBit",
+        "name": "Bits8",
         "description": "8-bit resolution",
         "value": 2
       },
       {
-        "name": "SixBit",
+        "name": "Bits6",
         "description": "6-bit resolution",
         "value": 3
       }

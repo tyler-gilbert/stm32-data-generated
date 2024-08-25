@@ -348,8 +348,7 @@
         "name": "REFCKON",
         "description": "RTC_REFIN reference clock detection enable (50 or 60 Hz)",
         "bit_offset": 4,
-        "bit_size": 1,
-        "enum": "REFCKON"
+        "bit_size": 1
       },
       {
         "name": "BYPSHAD",
@@ -393,7 +392,7 @@
         "bit_size": 1
       },
       {
-        "name": "ALRAIE",
+        "name": "ALRIE",
         "description": "Alarm interrupt enable",
         "bit_offset": 12,
         "bit_size": 1,
@@ -491,8 +490,7 @@
         "name": "TAMPALRM_PU",
         "description": "TAMPALRM pull-up enable",
         "bit_offset": 29,
-        "bit_size": 1,
-        "enum": "TAMPALRM_PU"
+        "bit_size": 1
       },
       {
         "name": "TAMPALRM_TYPE",
@@ -561,7 +559,7 @@
     "fields": [
       {
         "name": "WUTWF",
-        "description": "Wakeup timer write flag",
+        "description": "Wakeup timer write enabled",
         "bit_offset": 2,
         "bit_size": 1
       },
@@ -591,10 +589,9 @@
       },
       {
         "name": "INIT",
-        "description": "Initialization mode",
+        "description": "Enter Initialization mode",
         "bit_offset": 7,
-        "bit_size": 1,
-        "enum": "INIT"
+        "bit_size": 1
       },
       {
         "name": "BIN",
@@ -691,16 +688,14 @@
     "description": "Privilege mode control register",
     "fields": [
       {
-        "name": "ALRAPRIV",
-        "description": "ALRAPRIV",
+        "name": "ALRPRIV",
+        "description": "ALRPRIV",
         "bit_offset": 0,
-        "bit_size": 1
-      },
-      {
-        "name": "ALRBPRIV",
-        "description": "ALRBPRIV",
-        "bit_offset": 1,
-        "bit_size": 1
+        "bit_size": 1,
+        "array": {
+          "len": 2,
+          "stride": 1
+        }
       },
       {
         "name": "WUTPRIV",
@@ -739,7 +734,7 @@
     "fields": [
       {
         "name": "CALRF",
-        "description": "Clear alarm A flag",
+        "description": "Clear alarm x flag",
         "bit_offset": 0,
         "bit_size": 1,
         "array": {
@@ -853,16 +848,14 @@
     "description": "Secure masked interrupt status register",
     "fields": [
       {
-        "name": "ALRAMF",
-        "description": "ALRAMF",
+        "name": "ALRMF",
+        "description": "Alarm x interrupt secure masked flag",
         "bit_offset": 0,
-        "bit_size": 1
-      },
-      {
-        "name": "ALRBMF",
-        "description": "ALRBMF",
-        "bit_offset": 1,
-        "bit_size": 1
+        "bit_size": 1,
+        "array": {
+          "len": 2,
+          "stride": 1
+        }
       },
       {
         "name": "WUTMF",
@@ -1152,12 +1145,12 @@
     "bit_size": 1,
     "variants": [
       {
-        "name": "Mask",
+        "name": "ToMatch",
         "description": "Alarm set if the date/day match",
         "value": 0
       },
       {
-        "name": "NotMask",
+        "name": "NotMatch",
         "description": "Date/day don’t care in Alarm comparison",
         "value": 1
       }
@@ -1368,21 +1361,6 @@
       }
     ]
   },
-  "enum/INIT": {
-    "bit_size": 1,
-    "variants": [
-      {
-        "name": "FreeRunningMode",
-        "description": "Free running mode",
-        "value": 0
-      },
-      {
-        "name": "InitMode",
-        "description": "Initialization mode used to program time and date register (RTC_TR and RTC_DR), and prescaler register (RTC_PRER). Counters are stopped and start counting from the new value when INIT is reset.",
-        "value": 1
-      }
-    ]
-  },
   "enum/ITSF": {
     "bit_size": 1,
     "variants": [
@@ -1488,21 +1466,6 @@
       }
     ]
   },
-  "enum/REFCKON": {
-    "bit_size": 1,
-    "variants": [
-      {
-        "name": "Disabled",
-        "description": "RTC_REFIN detection disabled",
-        "value": 0
-      },
-      {
-        "name": "Enabled",
-        "description": "RTC_REFIN detection enabled",
-        "value": 1
-      }
-    ]
-  },
   "enum/SSRUF": {
     "bit_size": 1,
     "variants": [
@@ -1519,21 +1482,6 @@
       {
         "name": "Underflow",
         "description": "This flag is set by hardware when the SSR rolls under 0. SSRUF is not set when SSCLR=1",
-        "value": 1
-      }
-    ]
-  },
-  "enum/TAMPALRM_PU": {
-    "bit_size": 1,
-    "variants": [
-      {
-        "name": "NoPullUp",
-        "description": "No pull-up is applied on TAMPALRM output",
-        "value": 0
-      },
-      {
-        "name": "PullUp",
-        "description": "A pull-up is applied on TAMPALRM output",
         "value": 1
       }
     ]

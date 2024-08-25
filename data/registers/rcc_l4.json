@@ -30,13 +30,13 @@
         "name": "PLLSAI1CFGR",
         "description": "PLLSAI1 configuration register",
         "byte_offset": 16,
-        "fieldset": "PLLSAI1CFGR"
+        "fieldset": "PLLSAICFGR"
       },
       {
         "name": "PLLSAI2CFGR",
         "description": "PLLSAI2 configuration register",
         "byte_offset": 20,
-        "fieldset": "PLLSAI2CFGR"
+        "fieldset": "PLLSAICFGR"
       },
       {
         "name": "CIER",
@@ -189,12 +189,6 @@
         "description": "Clock recovery RC register",
         "byte_offset": 152,
         "fieldset": "CRRCR"
-      },
-      {
-        "name": "CCIPR2",
-        "description": "Peripherals independent clock configuration register",
-        "byte_offset": 156,
-        "fieldset": "CCIPR2"
       }
     ]
   },
@@ -211,12 +205,6 @@
         "name": "DMA2EN",
         "description": "DMA2 clock enable",
         "bit_offset": 1,
-        "bit_size": 1
-      },
-      {
-        "name": "DMAMUX1EN",
-        "description": "DMAMUX clock enable",
-        "bit_offset": 2,
         "bit_size": 1
       },
       {
@@ -242,12 +230,6 @@
         "description": "DMA2D clock enable",
         "bit_offset": 17,
         "bit_size": 1
-      },
-      {
-        "name": "GFXMMUEN",
-        "description": "Graphic MMU clock enable",
-        "bit_offset": 18,
-        "bit_size": 1
       }
     ]
   },
@@ -264,12 +246,6 @@
         "name": "DMA2RST",
         "description": "DMA2 reset",
         "bit_offset": 1,
-        "bit_size": 1
-      },
-      {
-        "name": "DMAMUX1RST",
-        "description": "DMAMUX1RST",
-        "bit_offset": 2,
         "bit_size": 1
       },
       {
@@ -295,12 +271,6 @@
         "description": "DMA2D reset",
         "bit_offset": 17,
         "bit_size": 1
-      },
-      {
-        "name": "GFXMMURST",
-        "description": "GFXMMU reset",
-        "bit_offset": 18,
-        "bit_size": 1
       }
     ]
   },
@@ -317,12 +287,6 @@
         "name": "DMA2SMEN",
         "description": "DMA2 clocks enable during Sleep and Stop modes",
         "bit_offset": 1,
-        "bit_size": 1
-      },
-      {
-        "name": "DMAMUX1SMEN",
-        "description": "DMAMUX clock enable during Sleep and Stop modes",
-        "bit_offset": 2,
         "bit_size": 1
       },
       {
@@ -353,12 +317,6 @@
         "name": "DMA2DSMEN",
         "description": "DMA2D clock enable during Sleep and Stop modes",
         "bit_offset": 17,
-        "bit_size": 1
-      },
-      {
-        "name": "GFXMMUSMEN",
-        "description": "GFXMMU clock enable during Sleep and Stop modes",
-        "bit_offset": 18,
         "bit_size": 1
       }
     ]
@@ -455,18 +413,6 @@
         "description": "Random Number Generator clock enable",
         "bit_offset": 18,
         "bit_size": 1
-      },
-      {
-        "name": "OSPIMEN",
-        "description": "OctoSPI IO manager clock enable",
-        "bit_offset": 20,
-        "bit_size": 1
-      },
-      {
-        "name": "SDMMC1EN",
-        "description": "SDMMC1 clock enable",
-        "bit_offset": 22,
-        "bit_size": 1
       }
     ]
   },
@@ -562,18 +508,6 @@
         "description": "Random number generator reset",
         "bit_offset": 18,
         "bit_size": 1
-      },
-      {
-        "name": "OSPIMRST",
-        "description": "OCTOSPI IO manager reset",
-        "bit_offset": 20,
-        "bit_size": 1
-      },
-      {
-        "name": "SDMMC1RST",
-        "description": "SDMMC1 reset",
-        "bit_offset": 22,
-        "bit_size": 1
       }
     ]
   },
@@ -641,12 +575,6 @@
         "bit_size": 1
       },
       {
-        "name": "SRAM3SMEN",
-        "description": "SRAM2 interface clocks enable during Sleep and Stop modes",
-        "bit_offset": 10,
-        "bit_size": 1
-      },
-      {
         "name": "USB_OTG_FSSMEN",
         "description": "OTG full speed clocks enable during Sleep and Stop modes",
         "bit_offset": 12,
@@ -671,12 +599,6 @@
         "bit_size": 1
       },
       {
-        "name": "HASH1SMEN",
-        "description": "HASH clock enable during Sleep and Stop modes",
-        "bit_offset": 17,
-        "bit_size": 1
-      },
-      {
         "name": "HASHSMEN",
         "description": "HASH clock enable during Sleep and Stop modes",
         "bit_offset": 17,
@@ -686,18 +608,6 @@
         "name": "RNGSMEN",
         "description": "Random Number Generator clocks enable during Sleep and Stop modes",
         "bit_offset": 18,
-        "bit_size": 1
-      },
-      {
-        "name": "OSPIMSMEN",
-        "description": "OctoSPI IO manager clocks enable during Sleep and Stop modes",
-        "bit_offset": 20,
-        "bit_size": 1
-      },
-      {
-        "name": "SDMMC1SMEN",
-        "description": "SDMMC1 clocks enable during Sleep and Stop modes",
-        "bit_offset": 22,
         "bit_size": 1
       }
     ]
@@ -716,12 +626,6 @@
         "description": "QUADSPIEN",
         "bit_offset": 8,
         "bit_size": 1
-      },
-      {
-        "name": "OSPI2EN",
-        "description": "OSPI2EN memory interface clock enable",
-        "bit_offset": 9,
-        "bit_size": 1
       }
     ]
   },
@@ -735,15 +639,9 @@
         "bit_size": 1
       },
       {
-        "name": "QSPIRST",
+        "name": "QUADSPIRST",
         "description": "Quad SPI memory interface reset",
         "bit_offset": 8,
-        "bit_size": 1
-      },
-      {
-        "name": "OSPI2RST",
-        "description": "OctOSPI2 memory interface reset",
-        "bit_offset": 9,
         "bit_size": 1
       }
     ]
@@ -758,15 +656,9 @@
         "bit_size": 1
       },
       {
-        "name": "QSPISMEN",
-        "description": "QSPISMEN",
+        "name": "QUADSPISMEN",
+        "description": "QUADSPISMEN",
         "bit_offset": 8,
-        "bit_size": 1
-      },
-      {
-        "name": "OCTOSPI2",
-        "description": "OctoSPI2 memory interface clocks enable during Sleep and Stop modes",
-        "bit_offset": 9,
         "bit_size": 1
       }
     ]
@@ -958,12 +850,6 @@
         "description": "LPTIM2EN",
         "bit_offset": 5,
         "bit_size": 1
-      },
-      {
-        "name": "DFSDMEN",
-        "description": "DFSDMEN enable",
-        "bit_offset": 24,
-        "bit_size": 1
       }
     ]
   },
@@ -1039,6 +925,12 @@
       {
         "name": "UART4RST",
         "description": "UART4 reset",
+        "bit_offset": 19,
+        "bit_size": 1
+      },
+      {
+        "name": "USART4RST",
+        "description": "USART4 reset.",
         "bit_offset": 19,
         "bit_size": 1
       },
@@ -1411,27 +1303,9 @@
         "bit_size": 1
       },
       {
-        "name": "DFSDM1EN",
-        "description": "DFSDM timer clock enable",
-        "bit_offset": 24,
-        "bit_size": 1
-      },
-      {
         "name": "DFSDMEN",
-        "description": "DFSDM timer clock enable",
+        "description": "DFSDMEN enable",
         "bit_offset": 24,
-        "bit_size": 1
-      },
-      {
-        "name": "LTDCEN",
-        "description": "LCD-TFT clock enable",
-        "bit_offset": 26,
-        "bit_size": 1
-      },
-      {
-        "name": "DSIEN",
-        "description": "DSI clock enable",
-        "bit_offset": 27,
         "bit_size": 1
       }
     ]
@@ -1506,27 +1380,9 @@
         "bit_size": 1
       },
       {
-        "name": "DFSDM1RST",
-        "description": "Digital filters for sigma-delata modulators (DFSDM) reset",
-        "bit_offset": 24,
-        "bit_size": 1
-      },
-      {
         "name": "DFSDMRST",
         "description": "DFSDM filter reset",
         "bit_offset": 24,
-        "bit_size": 1
-      },
-      {
-        "name": "LTDCRST",
-        "description": "LCD-TFT reset",
-        "bit_offset": 26,
-        "bit_size": 1
-      },
-      {
-        "name": "DSIRST",
-        "description": "DSI reset",
-        "bit_offset": 27,
         "bit_size": 1
       }
     ]
@@ -1601,27 +1457,9 @@
         "bit_size": 1
       },
       {
-        "name": "DFSDM1SMEN",
-        "description": "DFSDM timer clocks enable during Sleep and Stop modes",
-        "bit_offset": 24,
-        "bit_size": 1
-      },
-      {
         "name": "DFSDMSMEN",
         "description": "DFSDM timer clocks enable during Sleep and Stop modes",
         "bit_offset": 24,
-        "bit_size": 1
-      },
-      {
-        "name": "LTDCSMEN",
-        "description": "LCD-TFT timer clocks enable during Sleep and Stop modes",
-        "bit_offset": 26,
-        "bit_size": 1
-      },
-      {
-        "name": "DSISMEN",
-        "description": "DSI clocks enable during Sleep and Stop modes",
-        "bit_offset": 27,
         "bit_size": 1
       }
     ]
@@ -1695,7 +1533,8 @@
         "name": "LSCOSEL",
         "description": "Low speed clock output selection",
         "bit_offset": 25,
-        "bit_size": 1
+        "bit_size": 1,
+        "enum": "LSCOSEL"
       }
     ]
   },
@@ -1706,162 +1545,120 @@
         "name": "USART1SEL",
         "description": "USART1 clock source selection",
         "bit_offset": 0,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "USART1SEL"
       },
       {
         "name": "USART2SEL",
         "description": "USART2 clock source selection",
         "bit_offset": 2,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "USARTSEL"
       },
       {
         "name": "USART3SEL",
         "description": "USART3 clock source selection",
         "bit_offset": 4,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "USARTSEL"
       },
       {
         "name": "UART4SEL",
         "description": "UART4 clock source selection",
         "bit_offset": 6,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "USARTSEL"
       },
       {
         "name": "UART5SEL",
         "description": "UART5 clock source selection",
         "bit_offset": 8,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "USARTSEL"
       },
       {
         "name": "LPUART1SEL",
         "description": "LPUART1 clock source selection",
         "bit_offset": 10,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "LPUART1SEL"
       },
       {
         "name": "I2C1SEL",
         "description": "I2C1 clock source selection",
         "bit_offset": 12,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "I2C1SEL"
       },
       {
         "name": "I2C2SEL",
         "description": "I2C2 clock source selection",
         "bit_offset": 14,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "I2C2SEL"
       },
       {
         "name": "I2C3SEL",
         "description": "I2C3 clock source selection",
         "bit_offset": 16,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "I2C3SEL"
       },
       {
         "name": "LPTIM1SEL",
         "description": "Low power timer 1 clock source selection",
         "bit_offset": 18,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "LPTIM1SEL"
       },
       {
         "name": "LPTIM2SEL",
         "description": "Low power timer 2 clock source selection",
         "bit_offset": 20,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "LPTIM2SEL"
       },
       {
         "name": "SAI1SEL",
         "description": "SAI1 clock source selection",
         "bit_offset": 22,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "SAI1SEL"
       },
       {
         "name": "SAI2SEL",
         "description": "SAI2 clock source selection",
         "bit_offset": 24,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "SAI2SEL"
       },
       {
         "name": "CLK48SEL",
         "description": "48 MHz clock source selection",
         "bit_offset": 26,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "CLK48SEL"
       },
       {
         "name": "ADCSEL",
         "description": "ADCs clock source selection",
         "bit_offset": 28,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "ADCSEL"
       },
       {
         "name": "SWPMI1SEL",
         "description": "SWPMI1 clock source selection",
         "bit_offset": 30,
-        "bit_size": 1
+        "bit_size": 1,
+        "enum": "SWPMI1SEL"
       },
       {
         "name": "DFSDMSEL",
         "description": "DFSDM clock source selection",
         "bit_offset": 31,
-        "bit_size": 1
-      }
-    ]
-  },
-  "fieldset/CCIPR2": {
-    "description": "Peripherals independent clock configuration register",
-    "fields": [
-      {
-        "name": "I2C4SEL",
-        "description": "I2C4 clock source selection",
-        "bit_offset": 0,
-        "bit_size": 2
-      },
-      {
-        "name": "DFSDMSEL",
-        "description": "Digital filter for sigma delta modulator kernel clock source selection",
-        "bit_offset": 2,
-        "bit_size": 1
-      },
-      {
-        "name": "ADFSDMSEL",
-        "description": "Digital filter for sigma delta modulator audio clock source selection",
-        "bit_offset": 3,
-        "bit_size": 2
-      },
-      {
-        "name": "SAI1SEL",
-        "description": "SAI1 clock source selection",
-        "bit_offset": 5,
-        "bit_size": 3
-      },
-      {
-        "name": "SAI2SEL",
-        "description": "SAI2 clock source selection",
-        "bit_offset": 8,
-        "bit_size": 3
-      },
-      {
-        "name": "DSISEL",
-        "description": "clock selection",
-        "bit_offset": 12,
-        "bit_size": 1
-      },
-      {
-        "name": "SDMMCSEL",
-        "description": "SDMMC clock selection",
-        "bit_offset": 14,
-        "bit_size": 1
-      },
-      {
-        "name": "PLLSAI2DIVR",
-        "description": "division factor for LTDC clock",
-        "bit_offset": 16,
-        "bit_size": 2
-      },
-      {
-        "name": "OSPISEL",
-        "description": "Octospi clock source selection",
-        "bit_offset": 20,
-        "bit_size": 2
+        "bit_size": 1,
+        "enum": "DFSDMSEL"
       }
     ]
   },
@@ -2158,7 +1955,8 @@
         "name": "MSIRGSEL",
         "description": "MSI clock range selection",
         "bit_offset": 3,
-        "bit_size": 1
+        "bit_size": 1,
+        "enum": "MSIRGSEL"
       },
       {
         "name": "MSIRANGE",
@@ -2396,13 +2194,15 @@
         "name": "PLLM",
         "description": "Division factor for the main PLL and audio PLL (PLLSAI1 and PLLSAI2) input clock",
         "bit_offset": 4,
-        "bit_size": 4
+        "bit_size": 3,
+        "enum": "PLLM"
       },
       {
         "name": "PLLN",
         "description": "Main PLL multiplication factor for VCO",
         "bit_offset": 8,
-        "bit_size": 7
+        "bit_size": 7,
+        "enum": "PLLN"
       },
       {
         "name": "PLLPEN",
@@ -2411,10 +2211,11 @@
         "bit_size": 1
       },
       {
-        "name": "PLLP",
+        "name": "PLLPBIT",
         "description": "Main PLL division factor for PLLSAI3CLK (SAI1 and SAI2 clock)",
         "bit_offset": 17,
-        "bit_size": 1
+        "bit_size": 1,
+        "enum": "PLLPBIT"
       },
       {
         "name": "PLLQEN",
@@ -2426,7 +2227,8 @@
         "name": "PLLQ",
         "description": "Main PLL division factor for PLLUSB1CLK(48 MHz clock)",
         "bit_offset": 21,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "PLLQ"
       },
       {
         "name": "PLLREN",
@@ -2438,131 +2240,133 @@
         "name": "PLLR",
         "description": "Main PLL division factor for PLLCLK (system clock)",
         "bit_offset": 25,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "PLLR"
       },
       {
-        "name": "PLLPDIV",
+        "name": "PLLP",
         "description": "Main PLL division factor for PLLSAI2CLK",
         "bit_offset": 27,
-        "bit_size": 5
+        "bit_size": 5,
+        "enum": "PLLP"
       }
     ]
   },
-  "fieldset/PLLSAI1CFGR": {
-    "description": "PLLSAI1 configuration register",
+  "fieldset/PLLSAICFGR": {
+    "description": "PLLSAI configuration register",
     "fields": [
       {
-        "name": "PLLSAI1M",
-        "description": "Division factor for PLLSAI1 input clock",
-        "bit_offset": 4,
-        "bit_size": 4
-      },
-      {
-        "name": "PLLSAI1N",
+        "name": "PLLN",
         "description": "SAI1PLL multiplication factor for VCO",
         "bit_offset": 8,
-        "bit_size": 7
+        "bit_size": 7,
+        "enum": "PLLN"
       },
       {
-        "name": "PLLSAI1PEN",
-        "description": "SAI1PLL PLLSAI1CLK output enable",
+        "name": "PLLPEN",
+        "description": "SAI1PLL PLLSAICLK output enable",
         "bit_offset": 16,
         "bit_size": 1
       },
       {
-        "name": "PLLSAI1P",
-        "description": "SAI1PLL division factor for PLLSAI1CLK (SAI1 or SAI2 clock)",
+        "name": "PLLPBIT",
+        "description": "SAI1PLL division factor for PLLSAICLK",
         "bit_offset": 17,
-        "bit_size": 1
+        "bit_size": 1,
+        "enum": "PLLPBIT"
       },
       {
-        "name": "PLLSAI1QEN",
+        "name": "PLLQEN",
         "description": "SAI1PLL PLLUSB2CLK output enable",
         "bit_offset": 20,
         "bit_size": 1
       },
       {
-        "name": "PLLSAI1Q",
-        "description": "SAI1PLL division factor for PLLUSB2CLK (48 MHz clock)",
+        "name": "PLLQ",
+        "description": "SAI1PLL division factor for PLLUSB2CLK",
         "bit_offset": 21,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "PLLQ"
       },
       {
-        "name": "PLLSAI1REN",
-        "description": "PLLSAI1 PLLADC1CLK output enable",
+        "name": "PLLREN",
+        "description": "PLLSAI PLLADC1CLK output enable",
         "bit_offset": 24,
         "bit_size": 1
       },
       {
-        "name": "PLLSAI1R",
-        "description": "PLLSAI1 division factor for PLLADC1CLK (ADC clock)",
+        "name": "PLLR",
+        "description": "PLLSAI division factor for PLLADC1CLK",
         "bit_offset": 25,
-        "bit_size": 2
+        "bit_size": 2,
+        "enum": "PLLR"
       },
       {
-        "name": "PLLSAI1PDIV",
-        "description": "PLLSAI1 division factor for PLLSAI1CLK",
+        "name": "PLLP",
+        "description": "PLLSAI division factor for PLLSAICLK",
         "bit_offset": 27,
-        "bit_size": 5
+        "bit_size": 5,
+        "enum": "PLLP"
       }
     ]
   },
-  "fieldset/PLLSAI2CFGR": {
-    "description": "PLLSAI2 configuration register",
-    "fields": [
+  "enum/ADCSEL": {
+    "bit_size": 2,
+    "variants": [
       {
-        "name": "PLLSAI2M",
-        "description": "Division factor for PLLSAI2 input clock",
-        "bit_offset": 4,
-        "bit_size": 4
+        "name": "DISABLE",
+        "description": "No clock selected",
+        "value": 0
       },
       {
-        "name": "PLLSAI2N",
-        "description": "SAI2PLL multiplication factor for VCO",
-        "bit_offset": 8,
-        "bit_size": 7
+        "name": "PLL1_Q",
+        "description": "PLLADC1CLK clock selected",
+        "value": 1
       },
       {
-        "name": "PLLSAI2PEN",
-        "description": "SAI2PLL PLLSAI2CLK output enable",
-        "bit_offset": 16,
-        "bit_size": 1
+        "name": "SYS",
+        "description": "SYSCLK clock selected",
+        "value": 3
+      }
+    ]
+  },
+  "enum/CLK48SEL": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "HSI48",
+        "description": "HSI48 clock selected (only for STM32L41x/L42x/L43x/L44x/L45x/L46x/L49x/L4Ax devices, otherwise no clock selected)",
+        "value": 0
       },
       {
-        "name": "PLLSAI2P",
-        "description": "SAI1PLL division factor for PLLSAI2CLK (SAI1 or SAI2 clock)",
-        "bit_offset": 17,
-        "bit_size": 1
+        "name": "PLLSAI1_Q",
+        "description": "PLLSAI1_Q aka PLL48M1CLK clock selected",
+        "value": 1
       },
       {
-        "name": "PLLSAI2QEN",
-        "description": "PLLSAI2 division factor for PLLDISCLK",
-        "bit_offset": 20,
-        "bit_size": 1
+        "name": "PLL1_Q",
+        "description": "PLL_Q aka PLL48M2CLK clock selected",
+        "value": 2
       },
       {
-        "name": "PLLSAI2Q",
-        "description": "SAI2PLL PLLSAI2CLK output enable",
-        "bit_offset": 21,
-        "bit_size": 2
+        "name": "MSI",
+        "description": "MSI clock selected",
+        "value": 3
+      }
+    ]
+  },
+  "enum/DFSDMSEL": {
+    "bit_size": 1,
+    "variants": [
+      {
+        "name": "PCLK2",
+        "description": "APB2 clock (PCLK2) selected as DFSDM kernel clock",
+        "value": 0
       },
       {
-        "name": "PLLSAI2REN",
-        "description": "PLLSAI2 PLLADC2CLK output enable",
-        "bit_offset": 24,
-        "bit_size": 1
-      },
-      {
-        "name": "PLLSAI2R",
-        "description": "PLLSAI2 division factor for PLLADC2CLK (ADC clock)",
-        "bit_offset": 25,
-        "bit_size": 2
-      },
-      {
-        "name": "PLLSAI2PDIV",
-        "description": "PLLSAI2 division factor for PLLSAI2CLK",
-        "bit_offset": 27,
-        "bit_size": 5
+        "name": "SYS",
+        "description": "System clock selected as DFSDM kernel clock",
+        "value": 1
       }
     ]
   },
@@ -2616,27 +2420,177 @@
       }
     ]
   },
+  "enum/I2C1SEL": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "PCLK1",
+        "description": "PCLK clock selected",
+        "value": 0
+      },
+      {
+        "name": "SYS",
+        "description": "SYSCLK clock selected",
+        "value": 1
+      },
+      {
+        "name": "HSI",
+        "description": "HSI clock selected",
+        "value": 2
+      }
+    ]
+  },
+  "enum/I2C2SEL": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "PCLK1",
+        "description": "PCLK clock selected",
+        "value": 0
+      },
+      {
+        "name": "SYS",
+        "description": "SYSCLK clock selected",
+        "value": 1
+      },
+      {
+        "name": "HSI",
+        "description": "HSI clock selected",
+        "value": 2
+      }
+    ]
+  },
+  "enum/I2C3SEL": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "PCLK1",
+        "description": "PCLK clock selected",
+        "value": 0
+      },
+      {
+        "name": "SYS",
+        "description": "SYSCLK clock selected",
+        "value": 1
+      },
+      {
+        "name": "HSI",
+        "description": "HSI clock selected",
+        "value": 2
+      }
+    ]
+  },
+  "enum/LPTIM1SEL": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "PCLK1",
+        "description": "PCLK clock selected",
+        "value": 0
+      },
+      {
+        "name": "LSI",
+        "description": "LSI clock selected",
+        "value": 1
+      },
+      {
+        "name": "HSI",
+        "description": "HSI clock selected",
+        "value": 2
+      },
+      {
+        "name": "LSE",
+        "description": "LSE clock selected",
+        "value": 3
+      }
+    ]
+  },
+  "enum/LPTIM2SEL": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "PCLK1",
+        "description": "PCLK clock selected",
+        "value": 0
+      },
+      {
+        "name": "LSI",
+        "description": "LSI clock selected",
+        "value": 1
+      },
+      {
+        "name": "HSI",
+        "description": "HSI clock selected",
+        "value": 2
+      },
+      {
+        "name": "LSE",
+        "description": "LSE clock selected",
+        "value": 3
+      }
+    ]
+  },
+  "enum/LPUART1SEL": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "PCLK1",
+        "description": "PCLK clock selected",
+        "value": 0
+      },
+      {
+        "name": "SYS",
+        "description": "SYSCLK clock selected",
+        "value": 1
+      },
+      {
+        "name": "HSI",
+        "description": "HSI clock selected",
+        "value": 2
+      },
+      {
+        "name": "LSE",
+        "description": "LSE clock selected",
+        "value": 3
+      }
+    ]
+  },
+  "enum/LSCOSEL": {
+    "bit_size": 1,
+    "variants": [
+      {
+        "name": "LSI",
+        "description": "LSI clock selected",
+        "value": 0
+      },
+      {
+        "name": "LSE",
+        "description": "LSE clock selected",
+        "value": 1
+      }
+    ]
+  },
   "enum/LSEDRV": {
     "bit_size": 2,
     "variants": [
       {
         "name": "Low",
-        "description": "Lowest drive",
+        "description": "Low driving capability",
         "value": 0
       },
       {
         "name": "MediumLow",
-        "description": "Medium low drive",
+        "description": "Medium low driving capability",
         "value": 1
       },
       {
         "name": "MediumHigh",
-        "description": "Medium high drive",
+        "description": "Medium high driving capability",
         "value": 2
       },
       {
         "name": "High",
-        "description": "Highest drive",
+        "description": "High driving capability",
         "value": 3
       }
     ]
@@ -2675,12 +2629,12 @@
     "bit_size": 4,
     "variants": [
       {
-        "name": "NoClock",
+        "name": "DISABLE",
         "description": "No clock",
         "value": 0
       },
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK clock selected",
         "value": 1
       },
@@ -2690,7 +2644,7 @@
         "value": 2
       },
       {
-        "name": "HSI16",
+        "name": "HSI",
         "description": "HSI oscillator clock selected",
         "value": 3
       },
@@ -2786,11 +2740,728 @@
       }
     ]
   },
+  "enum/MSIRGSEL": {
+    "bit_size": 1,
+    "variants": [
+      {
+        "name": "CSR",
+        "description": "MSI Range is provided by MSISRANGE[3:0] in RCC_CSR register",
+        "value": 0
+      },
+      {
+        "name": "CR",
+        "description": "MSI Range is provided by MSIRANGE[3:0] in the RCC_CR register",
+        "value": 1
+      }
+    ]
+  },
+  "enum/PLLM": {
+    "bit_size": 3,
+    "variants": [
+      {
+        "name": "Div1",
+        "value": 0
+      },
+      {
+        "name": "Div2",
+        "value": 1
+      },
+      {
+        "name": "Div3",
+        "value": 2
+      },
+      {
+        "name": "Div4",
+        "value": 3
+      },
+      {
+        "name": "Div5",
+        "value": 4
+      },
+      {
+        "name": "Div6",
+        "value": 5
+      },
+      {
+        "name": "Div7",
+        "value": 6
+      },
+      {
+        "name": "Div8",
+        "value": 7
+      }
+    ]
+  },
+  "enum/PLLN": {
+    "bit_size": 7,
+    "variants": [
+      {
+        "name": "Mul8",
+        "value": 8
+      },
+      {
+        "name": "Mul9",
+        "value": 9
+      },
+      {
+        "name": "Mul10",
+        "value": 10
+      },
+      {
+        "name": "Mul11",
+        "value": 11
+      },
+      {
+        "name": "Mul12",
+        "value": 12
+      },
+      {
+        "name": "Mul13",
+        "value": 13
+      },
+      {
+        "name": "Mul14",
+        "value": 14
+      },
+      {
+        "name": "Mul15",
+        "value": 15
+      },
+      {
+        "name": "Mul16",
+        "value": 16
+      },
+      {
+        "name": "Mul17",
+        "value": 17
+      },
+      {
+        "name": "Mul18",
+        "value": 18
+      },
+      {
+        "name": "Mul19",
+        "value": 19
+      },
+      {
+        "name": "Mul20",
+        "value": 20
+      },
+      {
+        "name": "Mul21",
+        "value": 21
+      },
+      {
+        "name": "Mul22",
+        "value": 22
+      },
+      {
+        "name": "Mul23",
+        "value": 23
+      },
+      {
+        "name": "Mul24",
+        "value": 24
+      },
+      {
+        "name": "Mul25",
+        "value": 25
+      },
+      {
+        "name": "Mul26",
+        "value": 26
+      },
+      {
+        "name": "Mul27",
+        "value": 27
+      },
+      {
+        "name": "Mul28",
+        "value": 28
+      },
+      {
+        "name": "Mul29",
+        "value": 29
+      },
+      {
+        "name": "Mul30",
+        "value": 30
+      },
+      {
+        "name": "Mul31",
+        "value": 31
+      },
+      {
+        "name": "Mul32",
+        "value": 32
+      },
+      {
+        "name": "Mul33",
+        "value": 33
+      },
+      {
+        "name": "Mul34",
+        "value": 34
+      },
+      {
+        "name": "Mul35",
+        "value": 35
+      },
+      {
+        "name": "Mul36",
+        "value": 36
+      },
+      {
+        "name": "Mul37",
+        "value": 37
+      },
+      {
+        "name": "Mul38",
+        "value": 38
+      },
+      {
+        "name": "Mul39",
+        "value": 39
+      },
+      {
+        "name": "Mul40",
+        "value": 40
+      },
+      {
+        "name": "Mul41",
+        "value": 41
+      },
+      {
+        "name": "Mul42",
+        "value": 42
+      },
+      {
+        "name": "Mul43",
+        "value": 43
+      },
+      {
+        "name": "Mul44",
+        "value": 44
+      },
+      {
+        "name": "Mul45",
+        "value": 45
+      },
+      {
+        "name": "Mul46",
+        "value": 46
+      },
+      {
+        "name": "Mul47",
+        "value": 47
+      },
+      {
+        "name": "Mul48",
+        "value": 48
+      },
+      {
+        "name": "Mul49",
+        "value": 49
+      },
+      {
+        "name": "Mul50",
+        "value": 50
+      },
+      {
+        "name": "Mul51",
+        "value": 51
+      },
+      {
+        "name": "Mul52",
+        "value": 52
+      },
+      {
+        "name": "Mul53",
+        "value": 53
+      },
+      {
+        "name": "Mul54",
+        "value": 54
+      },
+      {
+        "name": "Mul55",
+        "value": 55
+      },
+      {
+        "name": "Mul56",
+        "value": 56
+      },
+      {
+        "name": "Mul57",
+        "value": 57
+      },
+      {
+        "name": "Mul58",
+        "value": 58
+      },
+      {
+        "name": "Mul59",
+        "value": 59
+      },
+      {
+        "name": "Mul60",
+        "value": 60
+      },
+      {
+        "name": "Mul61",
+        "value": 61
+      },
+      {
+        "name": "Mul62",
+        "value": 62
+      },
+      {
+        "name": "Mul63",
+        "value": 63
+      },
+      {
+        "name": "Mul64",
+        "value": 64
+      },
+      {
+        "name": "Mul65",
+        "value": 65
+      },
+      {
+        "name": "Mul66",
+        "value": 66
+      },
+      {
+        "name": "Mul67",
+        "value": 67
+      },
+      {
+        "name": "Mul68",
+        "value": 68
+      },
+      {
+        "name": "Mul69",
+        "value": 69
+      },
+      {
+        "name": "Mul70",
+        "value": 70
+      },
+      {
+        "name": "Mul71",
+        "value": 71
+      },
+      {
+        "name": "Mul72",
+        "value": 72
+      },
+      {
+        "name": "Mul73",
+        "value": 73
+      },
+      {
+        "name": "Mul74",
+        "value": 74
+      },
+      {
+        "name": "Mul75",
+        "value": 75
+      },
+      {
+        "name": "Mul76",
+        "value": 76
+      },
+      {
+        "name": "Mul77",
+        "value": 77
+      },
+      {
+        "name": "Mul78",
+        "value": 78
+      },
+      {
+        "name": "Mul79",
+        "value": 79
+      },
+      {
+        "name": "Mul80",
+        "value": 80
+      },
+      {
+        "name": "Mul81",
+        "value": 81
+      },
+      {
+        "name": "Mul82",
+        "value": 82
+      },
+      {
+        "name": "Mul83",
+        "value": 83
+      },
+      {
+        "name": "Mul84",
+        "value": 84
+      },
+      {
+        "name": "Mul85",
+        "value": 85
+      },
+      {
+        "name": "Mul86",
+        "value": 86
+      },
+      {
+        "name": "Mul87",
+        "value": 87
+      },
+      {
+        "name": "Mul88",
+        "value": 88
+      },
+      {
+        "name": "Mul89",
+        "value": 89
+      },
+      {
+        "name": "Mul90",
+        "value": 90
+      },
+      {
+        "name": "Mul91",
+        "value": 91
+      },
+      {
+        "name": "Mul92",
+        "value": 92
+      },
+      {
+        "name": "Mul93",
+        "value": 93
+      },
+      {
+        "name": "Mul94",
+        "value": 94
+      },
+      {
+        "name": "Mul95",
+        "value": 95
+      },
+      {
+        "name": "Mul96",
+        "value": 96
+      },
+      {
+        "name": "Mul97",
+        "value": 97
+      },
+      {
+        "name": "Mul98",
+        "value": 98
+      },
+      {
+        "name": "Mul99",
+        "value": 99
+      },
+      {
+        "name": "Mul100",
+        "value": 100
+      },
+      {
+        "name": "Mul101",
+        "value": 101
+      },
+      {
+        "name": "Mul102",
+        "value": 102
+      },
+      {
+        "name": "Mul103",
+        "value": 103
+      },
+      {
+        "name": "Mul104",
+        "value": 104
+      },
+      {
+        "name": "Mul105",
+        "value": 105
+      },
+      {
+        "name": "Mul106",
+        "value": 106
+      },
+      {
+        "name": "Mul107",
+        "value": 107
+      },
+      {
+        "name": "Mul108",
+        "value": 108
+      },
+      {
+        "name": "Mul109",
+        "value": 109
+      },
+      {
+        "name": "Mul110",
+        "value": 110
+      },
+      {
+        "name": "Mul111",
+        "value": 111
+      },
+      {
+        "name": "Mul112",
+        "value": 112
+      },
+      {
+        "name": "Mul113",
+        "value": 113
+      },
+      {
+        "name": "Mul114",
+        "value": 114
+      },
+      {
+        "name": "Mul115",
+        "value": 115
+      },
+      {
+        "name": "Mul116",
+        "value": 116
+      },
+      {
+        "name": "Mul117",
+        "value": 117
+      },
+      {
+        "name": "Mul118",
+        "value": 118
+      },
+      {
+        "name": "Mul119",
+        "value": 119
+      },
+      {
+        "name": "Mul120",
+        "value": 120
+      },
+      {
+        "name": "Mul121",
+        "value": 121
+      },
+      {
+        "name": "Mul122",
+        "value": 122
+      },
+      {
+        "name": "Mul123",
+        "value": 123
+      },
+      {
+        "name": "Mul124",
+        "value": 124
+      },
+      {
+        "name": "Mul125",
+        "value": 125
+      },
+      {
+        "name": "Mul126",
+        "value": 126
+      },
+      {
+        "name": "Mul127",
+        "value": 127
+      }
+    ]
+  },
+  "enum/PLLP": {
+    "bit_size": 5,
+    "variants": [
+      {
+        "name": "Div2",
+        "value": 2
+      },
+      {
+        "name": "Div3",
+        "value": 3
+      },
+      {
+        "name": "Div4",
+        "value": 4
+      },
+      {
+        "name": "Div5",
+        "value": 5
+      },
+      {
+        "name": "Div6",
+        "value": 6
+      },
+      {
+        "name": "Div7",
+        "value": 7
+      },
+      {
+        "name": "Div8",
+        "value": 8
+      },
+      {
+        "name": "Div9",
+        "value": 9
+      },
+      {
+        "name": "Div10",
+        "value": 10
+      },
+      {
+        "name": "Div11",
+        "value": 11
+      },
+      {
+        "name": "Div12",
+        "value": 12
+      },
+      {
+        "name": "Div13",
+        "value": 13
+      },
+      {
+        "name": "Div14",
+        "value": 14
+      },
+      {
+        "name": "Div15",
+        "value": 15
+      },
+      {
+        "name": "Div16",
+        "value": 16
+      },
+      {
+        "name": "Div17",
+        "value": 17
+      },
+      {
+        "name": "Div18",
+        "value": 18
+      },
+      {
+        "name": "Div19",
+        "value": 19
+      },
+      {
+        "name": "Div20",
+        "value": 20
+      },
+      {
+        "name": "Div21",
+        "value": 21
+      },
+      {
+        "name": "Div22",
+        "value": 22
+      },
+      {
+        "name": "Div23",
+        "value": 23
+      },
+      {
+        "name": "Div24",
+        "value": 24
+      },
+      {
+        "name": "Div25",
+        "value": 25
+      },
+      {
+        "name": "Div26",
+        "value": 26
+      },
+      {
+        "name": "Div27",
+        "value": 27
+      },
+      {
+        "name": "Div28",
+        "value": 28
+      },
+      {
+        "name": "Div29",
+        "value": 29
+      },
+      {
+        "name": "Div30",
+        "value": 30
+      },
+      {
+        "name": "Div31",
+        "value": 31
+      }
+    ]
+  },
+  "enum/PLLPBIT": {
+    "bit_size": 1,
+    "variants": [
+      {
+        "name": "Div7",
+        "value": 0
+      },
+      {
+        "name": "Div17",
+        "value": 1
+      }
+    ]
+  },
+  "enum/PLLQ": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "Div2",
+        "value": 0
+      },
+      {
+        "name": "Div4",
+        "value": 1
+      },
+      {
+        "name": "Div6",
+        "value": 2
+      },
+      {
+        "name": "Div8",
+        "value": 3
+      }
+    ]
+  },
+  "enum/PLLR": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "Div2",
+        "value": 0
+      },
+      {
+        "name": "Div4",
+        "value": 1
+      },
+      {
+        "name": "Div6",
+        "value": 2
+      },
+      {
+        "name": "Div8",
+        "value": 3
+      }
+    ]
+  },
   "enum/PLLSRC": {
     "bit_size": 2,
     "variants": [
       {
-        "name": "None",
+        "name": "DISABLE",
         "description": "No clock sent to PLL",
         "value": 0
       },
@@ -2800,7 +3471,7 @@
         "value": 1
       },
       {
-        "name": "HSI16",
+        "name": "HSI",
         "description": "HSI selected as PLL input clock",
         "value": 2
       },
@@ -2845,7 +3516,7 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "NoClock",
+        "name": "DISABLE",
         "description": "No clock",
         "value": 0
       },
@@ -2866,6 +3537,56 @@
       }
     ]
   },
+  "enum/SAI1SEL": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "PLLSAI1_P",
+        "description": "PLLSAI1CLK clock is selected as SAIx clock",
+        "value": 0
+      },
+      {
+        "name": "PLLSAI2_P",
+        "description": "PLLSAI2CLK clock is selected as SAIx clock",
+        "value": 1
+      },
+      {
+        "name": "PLL1_P",
+        "description": "PLLSAI3CLK clock is selected as SAIx clock",
+        "value": 2
+      },
+      {
+        "name": "SAI1_EXTCLK",
+        "description": "External clock SAIx_EXTCLK clock selected as SAIx clock",
+        "value": 3
+      }
+    ]
+  },
+  "enum/SAI2SEL": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "PLLSAI1_P",
+        "description": "PLLSAI1CLK clock is selected as SAIx clock",
+        "value": 0
+      },
+      {
+        "name": "PLLSAI2_P",
+        "description": "PLLSAI2CLK clock is selected as SAIx clock",
+        "value": 1
+      },
+      {
+        "name": "PLL1_P",
+        "description": "PLLSAI3CLK clock is selected as SAIx clock",
+        "value": 2
+      },
+      {
+        "name": "SAI2_EXTCLK",
+        "description": "External clock SAIx_EXTCLK clock selected as SAIx clock",
+        "value": 3
+      }
+    ]
+  },
   "enum/STOPWUCK": {
     "bit_size": 1,
     "variants": [
@@ -2875,7 +3596,7 @@
         "value": 0
       },
       {
-        "name": "HSI16",
+        "name": "HSI",
         "description": "HSI oscillator selected as wake-up from Stop clock",
         "value": 1
       }
@@ -2890,7 +3611,7 @@
         "value": 0
       },
       {
-        "name": "HSI16",
+        "name": "HSI",
         "description": "HSI selected as system clock",
         "value": 1
       },
@@ -2900,8 +3621,71 @@
         "value": 2
       },
       {
-        "name": "PLL",
+        "name": "PLL1_R",
         "description": "PLL selected as system clock",
+        "value": 3
+      }
+    ]
+  },
+  "enum/SWPMI1SEL": {
+    "bit_size": 1,
+    "variants": [
+      {
+        "name": "PCLK1",
+        "value": 0
+      },
+      {
+        "name": "HSI",
+        "value": 1
+      }
+    ]
+  },
+  "enum/USART1SEL": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "PCLK2",
+        "description": "PCLK clock selected",
+        "value": 0
+      },
+      {
+        "name": "SYS",
+        "description": "SYSCLK clock selected",
+        "value": 1
+      },
+      {
+        "name": "HSI",
+        "description": "HSI clock selected",
+        "value": 2
+      },
+      {
+        "name": "LSE",
+        "description": "LSE clock selected",
+        "value": 3
+      }
+    ]
+  },
+  "enum/USARTSEL": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "PCLK1",
+        "description": "PCLK clock selected",
+        "value": 0
+      },
+      {
+        "name": "SYS",
+        "description": "SYSCLK clock selected",
+        "value": 1
+      },
+      {
+        "name": "HSI",
+        "description": "HSI clock selected",
+        "value": 2
+      },
+      {
+        "name": "LSE",
+        "description": "LSE clock selected",
         "value": 3
       }
     ]

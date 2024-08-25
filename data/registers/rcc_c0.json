@@ -572,14 +572,14 @@
         "enum": "MCOPRE"
       },
       {
-        "name": "MCOSEL",
+        "name": "MCO1SEL",
         "description": "Microcontroller clock output clock selector\r This bitfield is controlled by software. It sets the clock selector for MCO output as follows:\r Note: This clock output may have some truncated cycles at startup or during MCO clock source switching. Any other value means no clock on MCO.",
         "bit_offset": 24,
         "bit_size": 4,
         "enum": "MCOSEL"
       },
       {
-        "name": "MCOPRE",
+        "name": "MCO1PRE",
         "description": "Microcontroller clock output prescaler\r This bitfield is controlled by software. It sets the division factor of the clock sent to the MCO output as follows:\r ...\r It is highly recommended to set this field before the MCO output is enabled.",
         "bit_offset": 28,
         "bit_size": 4,
@@ -604,7 +604,7 @@
       },
       {
         "name": "HSIRDYC",
-        "description": "HSI16 ready interrupt clear\r This bit is set software to clear the HSIRDYF flag.",
+        "description": "HSI ready interrupt clear\r This bit is set software to clear the HSIRDYF flag.",
         "bit_offset": 3,
         "bit_size": 1
       },
@@ -645,7 +645,7 @@
       },
       {
         "name": "HSIRDYIE",
-        "description": "HSI16 ready interrupt enable\r Set and cleared by software to enable/disable interrupt caused by the HSI16 oscillator stabilization:",
+        "description": "HSI ready interrupt enable\r Set and cleared by software to enable/disable interrupt caused by the HSI oscillator stabilization:",
         "bit_offset": 3,
         "bit_size": 1
       },
@@ -674,7 +674,7 @@
       },
       {
         "name": "HSIRDYF",
-        "description": "HSI16 ready interrupt flag\r This flag indicates a pending interrupt upon HSI16 clock getting ready.\r Set by hardware when the HSI16 clock becomes stable and HSIRDYIE is set in response to setting the HSION (refer to ). When HSION is not set but the HSI16 oscillator is enabled by the peripheral through a clock request, this bit is not set and no interrupt is generated.\r Cleared by software setting the HSIRDYC bit.",
+        "description": "HSI ready interrupt flag\r This flag indicates a pending interrupt upon HSI clock getting ready.\r Set by hardware when the HSI clock becomes stable and HSIRDYIE is set in response to setting the HSION (refer to ). When HSION is not set but the HSI oscillator is enabled by the peripheral through a clock request, this bit is not set and no interrupt is generated.\r Cleared by software setting the HSIRDYC bit.",
         "bit_offset": 3,
         "bit_size": 1
       },
@@ -702,40 +702,33 @@
     "description": "RCC clock control register",
     "fields": [
       {
-        "name": "SYSDIV",
-        "description": "System clock division factor\r This bitfield controlled by software sets the division factor of the system clock divider to produce SYSCLK clock:",
-        "bit_offset": 2,
-        "bit_size": 3,
-        "enum": "SYSDIV"
-      },
-      {
         "name": "HSIKERDIV",
-        "description": "HSI48 kernel clock division factor\r This bitfield controlled by software sets the division factor of the kernel clock divider to produce HSIKER clock:",
+        "description": "HSI kernel clock division factor\r This bitfield controlled by software sets the division factor of the kernel clock divider to produce HSIKER clock:",
         "bit_offset": 5,
         "bit_size": 3,
         "enum": "HSIKERDIV"
       },
       {
         "name": "HSION",
-        "description": "HSI48 clock enable\r Set and cleared by software and hardware, with hardware taking priority.\r Kept low by hardware as long as the device is in a low-power mode.\r Kept high by hardware as long as the system is clocked with a clock derived from HSI48. This includes the exit from low-power modes and the system clock fall-back to HSI48 upon failing HSE oscillator clock selected as system clock source.",
+        "description": "HSI clock enable\r Set and cleared by software and hardware, with hardware taking priority.\r Kept low by hardware as long as the device is in a low-power mode.\r Kept high by hardware as long as the system is clocked with a clock derived from HSI. This includes the exit from low-power modes and the system clock fall-back to HSI upon failing HSE oscillator clock selected as system clock source.",
         "bit_offset": 8,
         "bit_size": 1
       },
       {
         "name": "HSIKERON",
-        "description": "HSI48 always-enable for peripheral kernels.\r Set and cleared by software.\r Setting the bit activates the HSI48 oscillator in Run and Stop modes, regardless of the HSION bit state. The HSI48 clock can only feed USART1, USART2, and I2C1 peripherals configured with HSI48 as kernel clock.\r Note: Keeping the HSI48 active in Stop mode allows speeding up the serial interface communication as the HSI48 clock is ready immediately upon exiting Stop mode.",
+        "description": "HSI always-enable for peripheral kernels.\r Set and cleared by software.\r Setting the bit activates the HSI oscillator in Run and Stop modes, regardless of the HSION bit state. The HSI clock can only feed USART1, USART2, and I2C1 peripherals configured with HSI as kernel clock.\r Note: Keeping the HSI active in Stop mode allows speeding up the serial interface communication as the HSI clock is ready immediately upon exiting Stop mode.",
         "bit_offset": 9,
         "bit_size": 1
       },
       {
         "name": "HSIRDY",
-        "description": "HSI48 clock ready flag\r Set by hardware when the HSI48 oscillator is enabled through HSION and ready to use (stable).\r Note: Upon clearing HSION, HSIRDY goes low after six HSI48 clock cycles.",
+        "description": "HSI clock ready flag\r Set by hardware when the HSI oscillator is enabled through HSION and ready to use (stable).\r Note: Upon clearing HSION, HSIRDY goes low after six HSI clock cycles.",
         "bit_offset": 10,
         "bit_size": 1
       },
       {
         "name": "HSIDIV",
-        "description": "HSI48 clock division factor\r This bitfield controlled by software sets the division factor of the HSI48 clock divider to produce HSISYS clock:",
+        "description": "HSI clock division factor\r This bitfield controlled by software sets the division factor of the HSI clock divider to produce HSISYS clock:",
         "bit_offset": 11,
         "bit_size": 3,
         "enum": "HSIDIV"
@@ -1015,13 +1008,13 @@
     "fields": [
       {
         "name": "HSICAL",
-        "description": "HSI48 clock calibration\r This bitfield directly acts on the HSI48 clock frequency. Its value is a sum of an internal factory-programmed number and the value of the HSITRIM[6:0] bitfield. In the factory, the internal number is set to calibrate the HSI48 clock frequency to 48 MHz (with HSITRIM[6:0] left at its reset value). Refer to the device datasheet for HSI48 calibration accuracy and for the frequency trimming granularity.\r Note: The trimming effect presents discontinuities at HSICAL[7:0] multiples of 64.",
+        "description": "HSI clock calibration\r This bitfield directly acts on the HSI clock frequency. Its value is a sum of an internal factory-programmed number and the value of the HSITRIM[6:0] bitfield. In the factory, the internal number is set to calibrate the HSI clock frequency to 48 MHz (with HSITRIM[6:0] left at its reset value). Refer to the device datasheet for HSI calibration accuracy and for the frequency trimming granularity.\r Note: The trimming effect presents discontinuities at HSICAL[7:0] multiples of 64.",
         "bit_offset": 0,
         "bit_size": 8
       },
       {
         "name": "HSITRIM",
-        "description": "HSI48 clock trimming\r The value of this bitfield contributes to the HSICAL[7:0] bitfield value.\r It allows HSI48 clock frequency user trimming.\r The HSI48 frequency accuracy as stated in the device datasheet applies when this bitfield is left at its reset value.",
+        "description": "HSI clock trimming\r The value of this bitfield contributes to the HSICAL[7:0] bitfield value.\r It allows HSI clock frequency user trimming.\r The HSI frequency accuracy as stated in the device datasheet applies when this bitfield is left at its reset value.",
         "bit_offset": 8,
         "bit_size": 7
       }
@@ -1031,7 +1024,7 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "System clock",
         "value": 0
       },
@@ -1186,12 +1179,12 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "PCLK",
+        "name": "PCLK1",
         "description": "PCLK",
         "value": 0
       },
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK",
         "value": 1
       },
@@ -1206,7 +1199,7 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK",
         "value": 0
       },
@@ -1311,18 +1304,18 @@
     "bit_size": 4,
     "variants": [
       {
-        "name": "NoClock",
+        "name": "DISABLE",
         "description": "No clock, MCO output disabled",
         "value": 0
       },
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK selected as MCO source",
         "value": 1
       },
       {
-        "name": "HSI48",
-        "description": "HSI48 selected as MCO source",
+        "name": "HSI",
+        "description": "HSI selected as MCO source",
         "value": 3
       },
       {
@@ -1376,7 +1369,7 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "NoClock",
+        "name": "DISABLE",
         "description": "No clock used as RTC clock",
         "value": 0
       },
@@ -1401,8 +1394,8 @@
     "bit_size": 3,
     "variants": [
       {
-        "name": "HSI",
-        "description": "HSI selected as system clock",
+        "name": "HSISYS",
+        "description": "HSISYS (HSI divided by HSIDIV) selected as system clock",
         "value": 0
       },
       {
@@ -1422,61 +1415,16 @@
       }
     ]
   },
-  "enum/SYSDIV": {
-    "bit_size": 3,
-    "variants": [
-      {
-        "name": "Div1",
-        "description": "1",
-        "value": 0
-      },
-      {
-        "name": "Div2",
-        "description": "2",
-        "value": 1
-      },
-      {
-        "name": "Div3",
-        "description": "3 (reset value)",
-        "value": 2
-      },
-      {
-        "name": "Div4",
-        "description": "4",
-        "value": 3
-      },
-      {
-        "name": "Div5",
-        "description": "5",
-        "value": 4
-      },
-      {
-        "name": "Div6",
-        "description": "6",
-        "value": 5
-      },
-      {
-        "name": "Div7",
-        "description": "7",
-        "value": 6
-      },
-      {
-        "name": "Div8",
-        "description": "8",
-        "value": 7
-      }
-    ]
-  },
   "enum/USART1SEL": {
     "bit_size": 2,
     "variants": [
       {
-        "name": "PCLK",
+        "name": "PCLK1",
         "description": "PCLK",
         "value": 0
       },
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK",
         "value": 1
       },

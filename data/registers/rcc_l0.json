@@ -15,12 +15,6 @@
         "fieldset": "ICSCR"
       },
       {
-        "name": "CRRCR",
-        "description": "Clock recovery RC register",
-        "byte_offset": 8,
-        "fieldset": "CRRCR"
-      },
-      {
         "name": "CFGR",
         "description": "Clock configuration register",
         "byte_offset": 12,
@@ -155,7 +149,7 @@
         "bit_size": 1
       },
       {
-        "name": "TOUCHEN",
+        "name": "TSCEN",
         "description": "Touch Sensing clock enable",
         "bit_offset": 16,
         "bit_size": 1
@@ -196,7 +190,7 @@
         "bit_size": 1
       },
       {
-        "name": "TOUCHRST",
+        "name": "TSCRST",
         "description": "Touch Sensing reset",
         "bit_offset": 16,
         "bit_size": 1
@@ -243,7 +237,7 @@
         "bit_size": 1
       },
       {
-        "name": "TOUCHSMEN",
+        "name": "TSCSMEN",
         "description": "Touch Sensing clock enable during sleep mode",
         "bit_offset": 16,
         "bit_size": 1
@@ -756,7 +750,7 @@
         "description": "USART1 clock source selection",
         "bit_offset": 0,
         "bit_size": 2,
-        "enum": "UARTSEL"
+        "enum": "USART1SEL"
       },
       {
         "name": "USART2SEL",
@@ -777,14 +771,14 @@
         "description": "I2C1 clock source selection",
         "bit_offset": 12,
         "bit_size": 2,
-        "enum": "ICSEL"
+        "enum": "I2CSEL"
       },
       {
         "name": "I2C3SEL",
         "description": "I2C3 clock source selection",
         "bit_offset": 16,
         "bit_size": 2,
-        "enum": "ICSEL"
+        "enum": "I2CSEL"
       },
       {
         "name": "LPTIM1SEL",
@@ -792,12 +786,6 @@
         "bit_offset": 18,
         "bit_size": 2,
         "enum": "LPTIMSEL"
-      },
-      {
-        "name": "HSI48MSEL",
-        "description": "48 MHz HSI48 clock source selection",
-        "bit_offset": 26,
-        "bit_size": 1
       }
     ]
   },
@@ -871,7 +859,7 @@
         "name": "MCOSEL",
         "description": "Microcontroller clock output selection",
         "bit_offset": 24,
-        "bit_size": 3,
+        "bit_size": 4,
         "enum": "MCOSEL"
       },
       {
@@ -899,8 +887,8 @@
         "bit_size": 1
       },
       {
-        "name": "HSI16RDYC",
-        "description": "HSI16 ready Interrupt clear",
+        "name": "HSIRDYC",
+        "description": "HSI ready Interrupt clear",
         "bit_offset": 2,
         "bit_size": 1
       },
@@ -920,12 +908,6 @@
         "name": "MSIRDYC",
         "description": "MSI ready Interrupt clear",
         "bit_offset": 5,
-        "bit_size": 1
-      },
-      {
-        "name": "HSI48RDYC",
-        "description": "HSI48 ready Interrupt clear",
-        "bit_offset": 6,
         "bit_size": 1
       },
       {
@@ -958,8 +940,8 @@
         "bit_size": 1
       },
       {
-        "name": "HSI16RDYIE",
-        "description": "HSI16 ready interrupt flag",
+        "name": "HSIRDYIE",
+        "description": "HSI ready interrupt flag",
         "bit_offset": 2,
         "bit_size": 1
       },
@@ -979,12 +961,6 @@
         "name": "MSIRDYIE",
         "description": "MSI ready interrupt flag",
         "bit_offset": 5,
-        "bit_size": 1
-      },
-      {
-        "name": "HSI48RDYIE",
-        "description": "HSI48 ready interrupt flag",
-        "bit_offset": 6,
         "bit_size": 1
       },
       {
@@ -1011,8 +987,8 @@
         "bit_size": 1
       },
       {
-        "name": "HSI16RDYF",
-        "description": "HSI16 ready interrupt flag",
+        "name": "HSIRDYF",
+        "description": "HSI ready interrupt flag",
         "bit_offset": 2,
         "bit_size": 1
       },
@@ -1035,12 +1011,6 @@
         "bit_size": 1
       },
       {
-        "name": "HSI48RDYF",
-        "description": "HSI48 ready interrupt flag",
-        "bit_offset": 6,
-        "bit_size": 1
-      },
-      {
         "name": "CSSLSEF",
         "description": "LSE Clock Security System Interrupt flag",
         "bit_offset": 7,
@@ -1058,37 +1028,37 @@
     "description": "Clock control register",
     "fields": [
       {
-        "name": "HSI16ON",
+        "name": "HSION",
         "description": "16 MHz high-speed internal clock enable",
         "bit_offset": 0,
         "bit_size": 1
       },
       {
-        "name": "HSI16KERON",
+        "name": "HSIKERON",
         "description": "High-speed internal clock enable bit for some IP kernels",
         "bit_offset": 1,
         "bit_size": 1
       },
       {
-        "name": "HSI16RDYF",
+        "name": "HSIRDY",
         "description": "Internal high-speed clock ready flag",
         "bit_offset": 2,
         "bit_size": 1
       },
       {
-        "name": "HSI16DIVEN",
-        "description": "HSI16DIVEN",
+        "name": "HSIDIVEN",
+        "description": "HSIDIVEN",
         "bit_offset": 3,
         "bit_size": 1
       },
       {
-        "name": "HSI16DIVF",
-        "description": "HSI16DIVF",
+        "name": "HSIDIVF",
+        "description": "HSIDIVF",
         "bit_offset": 4,
         "bit_size": 1
       },
       {
-        "name": "HSI16OUTEN",
+        "name": "HSIOUTEN",
         "description": "16 MHz high-speed internal clock output enable",
         "bit_offset": 5,
         "bit_size": 1
@@ -1147,35 +1117,6 @@
         "description": "PLL clock ready flag",
         "bit_offset": 25,
         "bit_size": 1
-      }
-    ]
-  },
-  "fieldset/CRRCR": {
-    "description": "Clock recovery RC register",
-    "fields": [
-      {
-        "name": "HSI48ON",
-        "description": "48MHz HSI clock enable",
-        "bit_offset": 0,
-        "bit_size": 1
-      },
-      {
-        "name": "HSI48RDY",
-        "description": "48MHz HSI clock ready flag",
-        "bit_offset": 1,
-        "bit_size": 1
-      },
-      {
-        "name": "HSI48DIV6EN",
-        "description": "48 MHz HSI clock divided by 6 output enable",
-        "bit_offset": 2,
-        "bit_size": 1
-      },
-      {
-        "name": "HSI48CAL",
-        "description": "48 MHz HSI clock calibration",
-        "bit_offset": 8,
-        "bit_size": 8
       }
     ]
   },
@@ -1433,13 +1374,13 @@
     "description": "Internal clock sources calibration register",
     "fields": [
       {
-        "name": "HSI16CAL",
+        "name": "HSICAL",
         "description": "nternal high speed clock calibration",
         "bit_offset": 0,
         "bit_size": 8
       },
       {
-        "name": "HSI16TRIM",
+        "name": "HSITRIM",
         "description": "High speed internal clock trimming",
         "bit_offset": 8,
         "bit_size": 5
@@ -1515,22 +1456,22 @@
       }
     ]
   },
-  "enum/ICSEL": {
+  "enum/I2CSEL": {
     "bit_size": 2,
     "variants": [
       {
-        "name": "APB",
+        "name": "PCLK1",
         "description": "APB clock selected as peripheral clock",
         "value": 0
       },
       {
-        "name": "SYSTEM",
+        "name": "SYS",
         "description": "System clock selected as peripheral clock",
         "value": 1
       },
       {
-        "name": "HSI16",
-        "description": "HSI16 clock selected as peripheral clock",
+        "name": "HSI",
+        "description": "HSI clock selected as peripheral clock",
         "value": 2
       }
     ]
@@ -1539,7 +1480,7 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "APB",
+        "name": "PCLK1",
         "description": "APB clock selected as Timer clock",
         "value": 0
       },
@@ -1549,8 +1490,8 @@
         "value": 1
       },
       {
-        "name": "HSI16",
-        "description": "HSI16 clock selected as Timer clock",
+        "name": "HSI",
+        "description": "HSI clock selected as Timer clock",
         "value": 2
       },
       {
@@ -1565,22 +1506,22 @@
     "variants": [
       {
         "name": "Low",
-        "description": "Lowest drive",
+        "description": "Low driving capability",
         "value": 0
       },
       {
         "name": "MediumLow",
-        "description": "Medium low drive",
+        "description": "Medium low driving capability",
         "value": 1
       },
       {
         "name": "MediumHigh",
-        "description": "Medium high drive",
+        "description": "Medium high driving capability",
         "value": 2
       },
       {
         "name": "High",
-        "description": "Highest drive",
+        "description": "High driving capability",
         "value": 3
       }
     ]
@@ -1619,17 +1560,17 @@
     "bit_size": 4,
     "variants": [
       {
-        "name": "NoClock",
+        "name": "DISABLE",
         "description": "No clock",
         "value": 0
       },
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK clock selected",
         "value": 1
       },
       {
-        "name": "HSI16",
+        "name": "HSI",
         "description": "HSI oscillator clock selected",
         "value": 2
       },
@@ -1664,44 +1605,39 @@
     "bit_size": 3,
     "variants": [
       {
-        "name": "Range0",
+        "name": "Range66K",
         "description": "range 0 around 65.536 kHz",
         "value": 0
       },
       {
-        "name": "Range1",
+        "name": "Range131K",
         "description": "range 1 around 131.072 kHz",
         "value": 1
       },
       {
-        "name": "Range2",
+        "name": "Range262K",
         "description": "range 2 around 262.144 kHz",
         "value": 2
       },
       {
-        "name": "Range3",
+        "name": "Range524K",
         "description": "range 3 around 524.288 kHz",
         "value": 3
       },
       {
-        "name": "Range4",
+        "name": "Range1M",
         "description": "range 4 around 1.048 MHz",
         "value": 4
       },
       {
-        "name": "Range5",
+        "name": "Range2M",
         "description": "range 5 around 2.097 MHz (reset value)",
         "value": 5
       },
       {
-        "name": "Range6",
+        "name": "Range4M",
         "description": "range 6 around 4.194 MHz",
         "value": 6
-      },
-      {
-        "name": "Range7",
-        "description": "not allowed",
-        "value": 7
       }
     ]
   },
@@ -1779,7 +1715,7 @@
     "bit_size": 1,
     "variants": [
       {
-        "name": "HSI16",
+        "name": "HSI",
         "description": "HSI selected as PLL input clock",
         "value": 0
       },
@@ -1849,7 +1785,7 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "NoClock",
+        "name": "DISABLE",
         "description": "No clock",
         "value": 0
       },
@@ -1879,8 +1815,8 @@
         "value": 0
       },
       {
-        "name": "HSI16",
-        "description": "Internal 16 MHz (HSI) oscillator selected as wake-up from Stop clock (or HSI16/4 if HSI16DIVEN=1)",
+        "name": "HSI",
+        "description": "Internal 16 MHz (HSI) oscillator selected as wake-up from Stop clock (or HSI/4 if HSIDIVEN=1)",
         "value": 1
       }
     ]
@@ -1894,7 +1830,7 @@
         "value": 0
       },
       {
-        "name": "HSI16",
+        "name": "HSI",
         "description": "HSI oscillator used as system clock",
         "value": 1
       },
@@ -1904,7 +1840,7 @@
         "value": 2
       },
       {
-        "name": "PLL",
+        "name": "PLL1_R",
         "description": "PLL used as system clock",
         "value": 3
       }
@@ -1914,18 +1850,43 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "APB",
+        "name": "PCLK1",
         "description": "APB clock selected as peripheral clock",
         "value": 0
       },
       {
-        "name": "SYSTEM",
+        "name": "SYS",
         "description": "System clock selected as peripheral clock",
         "value": 1
       },
       {
-        "name": "HSI16",
-        "description": "HSI16 clock selected as peripheral clock",
+        "name": "HSI",
+        "description": "HSI clock selected as peripheral clock",
+        "value": 2
+      },
+      {
+        "name": "LSE",
+        "description": "LSE clock selected as peripheral clock",
+        "value": 3
+      }
+    ]
+  },
+  "enum/USART1SEL": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "PCLK2",
+        "description": "APB clock selected as peripheral clock",
+        "value": 0
+      },
+      {
+        "name": "SYS",
+        "description": "System clock selected as peripheral clock",
+        "value": 1
+      },
+      {
+        "name": "HSI",
+        "description": "HSI clock selected as peripheral clock",
         "value": 2
       },
       {

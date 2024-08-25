@@ -38,12 +38,6 @@
         "fieldset": "CCCR"
       },
       {
-        "name": "PWRCR",
-        "description": "SYSCFG power control register",
-        "byte_offset": 44,
-        "fieldset": "PWRCR"
-      },
-      {
         "name": "PKGR",
         "description": "SYSCFG package register",
         "byte_offset": 292,
@@ -165,6 +159,13 @@
         "byte_offset": 836,
         "access": "Read",
         "fieldset": "UR17"
+      },
+      {
+        "name": "UR18",
+        "description": "SYSCFG user register 18",
+        "byte_offset": 840,
+        "access": "Read",
+        "fieldset": "UR18"
       }
     ]
   },
@@ -201,7 +202,7 @@
         "bit_size": 1
       },
       {
-        "name": "READY",
+        "name": "RDY",
         "description": "Compensation cell ready flag",
         "bit_offset": 8,
         "bit_size": 1
@@ -321,10 +322,11 @@
         "bit_size": 1
       },
       {
-        "name": "EPIS",
-        "description": "Ethernet PHY Interface Selection",
+        "name": "ETH_SEL_PHY",
+        "description": "Ethernet PHY interface selection.",
         "bit_offset": 21,
-        "bit_size": 3
+        "bit_size": 3,
+        "enum": "ETH_SEL_PHY"
       },
       {
         "name": "PA0SO",
@@ -349,17 +351,6 @@
         "description": "PC3 Switch Open",
         "bit_offset": 27,
         "bit_size": 1
-      }
-    ]
-  },
-  "fieldset/PWRCR": {
-    "description": "SYSCFG power control register",
-    "fields": [
-      {
-        "name": "ODEN",
-        "description": "Overdrive enable",
-        "bit_offset": 0,
-        "bit_size": 4
       }
     ]
   },
@@ -489,6 +480,24 @@
         "description": "I/O high speed / low voltage",
         "bit_offset": 0,
         "bit_size": 1
+      },
+      {
+        "name": "TCM_AXI_SHARED_CFG",
+        "description": "ITCM-RAM / AXI-SRAM size",
+        "bit_offset": 16,
+        "bit_size": 2,
+        "enum": "ITCM_AXI_RAM_SIZE"
+      }
+    ]
+  },
+  "fieldset/UR18": {
+    "description": "SYSCFG user register 18",
+    "fields": [
+      {
+        "name": "CPU_FREQ_BOOST",
+        "description": "CPU maximum frequency boost enable",
+        "bit_offset": 0,
+        "bit_size": 1
       }
     ]
   },
@@ -613,6 +622,46 @@
         "description": "Protected area start address for bank 2",
         "bit_offset": 16,
         "bit_size": 12
+      }
+    ]
+  },
+  "enum/ETH_SEL_PHY": {
+    "bit_size": 3,
+    "variants": [
+      {
+        "name": "MII_GMII",
+        "description": "GMII or MII",
+        "value": 0
+      },
+      {
+        "name": "RMII",
+        "description": "RMII",
+        "value": 4
+      }
+    ]
+  },
+  "enum/ITCM_AXI_RAM_SIZE": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "Itcm64Axi320",
+        "description": "64 Kbyte ITCM-RAM / 320 Kbyte AXI-SRAM",
+        "value": 0
+      },
+      {
+        "name": "Itcm128Axi256",
+        "description": "128 Kbyte ITCM-RAM / 256 Kbyte AXI-SRAM",
+        "value": 1
+      },
+      {
+        "name": "Itcm192Axi192",
+        "description": "192 Kbyte ITCM-RAM / 192 Kbyte AXI-SRAM",
+        "value": 2
+      },
+      {
+        "name": "Itcm256Axi128",
+        "description": "256 Kbyte ITCM-RAM / 128 Kbyte AXI-SRAM",
+        "value": 3
       }
     ]
   }

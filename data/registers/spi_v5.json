@@ -52,18 +52,44 @@
         "fieldset": "AUTOCR"
       },
       {
-        "name": "TXDR",
-        "description": "Transmit Data Register",
+        "name": "TXDR16",
+        "description": "Transmit Data Register - half-word sized",
         "byte_offset": 32,
         "access": "Write",
-        "fieldset": "TXDR"
+        "bit_size": 16
       },
       {
-        "name": "RXDR",
-        "description": "Receive Data Register",
+        "name": "TXDR32",
+        "description": "Transmit Data Register",
+        "byte_offset": 32,
+        "access": "Write"
+      },
+      {
+        "name": "TXDR8",
+        "description": "Transmit Data Register - byte sized",
+        "byte_offset": 32,
+        "access": "Write",
+        "bit_size": 8
+      },
+      {
+        "name": "RXDR16",
+        "description": "Receive Data Register - half-word sized",
         "byte_offset": 48,
         "access": "Read",
-        "fieldset": "RXDR"
+        "bit_size": 16
+      },
+      {
+        "name": "RXDR32",
+        "description": "Receive Data Register",
+        "byte_offset": 48,
+        "access": "Read"
+      },
+      {
+        "name": "RXDR8",
+        "description": "Receive Data Register - byte sized",
+        "byte_offset": 48,
+        "access": "Read",
+        "bit_size": 8
       },
       {
         "name": "CRCPOLY",
@@ -281,10 +307,9 @@
       },
       {
         "name": "AFCNTR",
-        "description": "Alternate function GPIOs control",
+        "description": "Alternate function always control GPIOs",
         "bit_offset": 31,
-        "bit_size": 1,
-        "enum": "AFCNTR"
+        "bit_size": 1
       }
     ]
   },
@@ -330,10 +355,9 @@
       },
       {
         "name": "CRC33_17",
-        "description": "32-bit CRC polynomial configuration",
+        "description": "Full size (33-bit or 17-bit) CRC polynomial is used",
         "bit_offset": 13,
-        "bit_size": 1,
-        "enum": "CRC_"
+        "bit_size": 1
       },
       {
         "name": "RCRCINI",
@@ -508,17 +532,6 @@
       }
     ]
   },
-  "fieldset/RXDR": {
-    "description": "Receive Data Register",
-    "fields": [
-      {
-        "name": "RXDR",
-        "description": "Receive data register",
-        "bit_offset": 0,
-        "bit_size": 32
-      }
-    ]
-  },
   "fieldset/SR": {
     "description": "Status Register",
     "fields": [
@@ -627,17 +640,6 @@
       }
     ]
   },
-  "fieldset/TXDR": {
-    "description": "Transmit Data Register",
-    "fields": [
-      {
-        "name": "TXDR",
-        "description": "Transmit data register",
-        "bit_offset": 0,
-        "bit_size": 32
-      }
-    ]
-  },
   "fieldset/UDRDR": {
     "description": "Underrun Data Register",
     "fields": [
@@ -646,21 +648,6 @@
         "description": "Data at slave underrun condition",
         "bit_offset": 0,
         "bit_size": 32
-      }
-    ]
-  },
-  "enum/AFCNTR": {
-    "bit_size": 1,
-    "variants": [
-      {
-        "name": "NotControlled",
-        "description": "Peripheral takes no control of GPIOs while disabled",
-        "value": 0
-      },
-      {
-        "name": "Controlled",
-        "description": "Peripheral controls GPIOs while disabled",
-        "value": 1
       }
     ]
   },
@@ -715,21 +702,6 @@
       {
         "name": "IdleHigh",
         "description": "CK to 1 when idle",
-        "value": 1
-      }
-    ]
-  },
-  "enum/CRC_": {
-    "bit_size": 1,
-    "variants": [
-      {
-        "name": "Disabled",
-        "description": "Full size (33/17 bit) CRC polynomial is not used",
-        "value": 0
-      },
-      {
-        "name": "Enabled",
-        "description": "Full size (33/17 bit) CRC polynomial is used",
         "value": 1
       }
     ]

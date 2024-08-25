@@ -12,15 +12,13 @@
         "name": "KEYR",
         "description": "Flash key register",
         "byte_offset": 4,
-        "access": "Write",
-        "fieldset": "KEYR"
+        "access": "Write"
       },
       {
         "name": "OPTKEYR",
         "description": "Flash option key register",
         "byte_offset": 8,
-        "access": "Write",
-        "fieldset": "OPTKEYR"
+        "access": "Write"
       },
       {
         "name": "SR",
@@ -163,17 +161,6 @@
       }
     ]
   },
-  "fieldset/KEYR": {
-    "description": "Flash key register",
-    "fields": [
-      {
-        "name": "FKEYR",
-        "description": "Flash Key",
-        "bit_offset": 0,
-        "bit_size": 32
-      }
-    ]
-  },
   "fieldset/OBR": {
     "description": "Option byte register",
     "fields": [
@@ -215,22 +202,19 @@
         "name": "nBOOT0",
         "description": "nBOOT0",
         "bit_offset": 11,
-        "bit_size": 1,
-        "enum": "nBOOT0"
+        "bit_size": 1
       },
       {
         "name": "nBOOT1",
         "description": "BOOT1",
         "bit_offset": 12,
-        "bit_size": 1,
-        "enum": "nBOOT1"
+        "bit_size": 1
       },
       {
         "name": "VDDA_MONITOR",
-        "description": "VDDA_MONITOR",
+        "description": "VDDA power supply supervisor enabled",
         "bit_offset": 13,
-        "bit_size": 1,
-        "enum": "VDDA_MONITOR"
+        "bit_size": 1
       },
       {
         "name": "RAM_PARITY_CHECK",
@@ -257,17 +241,6 @@
         "description": "Data1",
         "bit_offset": 24,
         "bit_size": 8
-      }
-    ]
-  },
-  "fieldset/OPTKEYR": {
-    "description": "Flash option key register",
-    "fields": [
-      {
-        "name": "OPTKEYR",
-        "description": "Option byte key",
-        "bit_offset": 0,
-        "bit_size": 32
       }
     ]
   },
@@ -376,21 +349,6 @@
       }
     ]
   },
-  "enum/VDDA_MONITOR": {
-    "bit_size": 1,
-    "variants": [
-      {
-        "name": "Disabled",
-        "description": "VDDA power supply supervisor disabled",
-        "value": 0
-      },
-      {
-        "name": "Enabled",
-        "description": "VDDA power supply supervisor enabled",
-        "value": 1
-      }
-    ]
-  },
   "enum/WDG_SW": {
     "bit_size": 1,
     "variants": [
@@ -402,36 +360,6 @@
       {
         "name": "Software",
         "description": "Software watchdog",
-        "value": 1
-      }
-    ]
-  },
-  "enum/nBOOT0": {
-    "bit_size": 1,
-    "variants": [
-      {
-        "name": "Disabled",
-        "description": "When BOOT_SEL is cleared, select the device boot mode",
-        "value": 0
-      },
-      {
-        "name": "Enabled",
-        "description": "When BOOT_SEL is cleared, select the device boot mode",
-        "value": 1
-      }
-    ]
-  },
-  "enum/nBOOT1": {
-    "bit_size": 1,
-    "variants": [
-      {
-        "name": "Disabled",
-        "description": "Together with BOOT0, select the device boot mode",
-        "value": 0
-      },
-      {
-        "name": "Enabled",
-        "description": "Together with BOOT0, select the device boot mode",
         "value": 1
       }
     ]

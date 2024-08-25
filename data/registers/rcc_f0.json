@@ -668,7 +668,7 @@
         "description": "System Clock Switch Status",
         "bit_offset": 2,
         "bit_size": 2,
-        "enum": "SWS"
+        "enum": "SW"
       },
       {
         "name": "HPRE",
@@ -712,11 +712,11 @@
         "enum": "PLLMUL"
       },
       {
-        "name": "MCO",
+        "name": "MCOSEL",
         "description": "Microcontroller clock output",
         "bit_offset": 24,
         "bit_size": 3,
-        "enum": "MCO"
+        "enum": "MCOSEL"
       },
       {
         "name": "MCOPRE",
@@ -726,11 +726,11 @@
         "enum": "MCOPRE"
       },
       {
-        "name": "PLLNODIV",
+        "name": "PLLMCODIV",
         "description": "PLL clock not divided for MCO",
         "bit_offset": 31,
         "bit_size": 1,
-        "enum": "PLLNODIV"
+        "enum": "PLLMCODIV"
       }
     ]
   },
@@ -1135,7 +1135,7 @@
     "bit_size": 1,
     "variants": [
       {
-        "name": "HSI_Div244",
+        "name": "HSI_DIV_244",
         "description": "HSI clock divided by 244 selected as CEC clock source",
         "value": 0
       },
@@ -1205,7 +1205,7 @@
         "value": 0
       },
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK clock selected as I2C clock source",
         "value": 1
       }
@@ -1216,73 +1216,23 @@
     "variants": [
       {
         "name": "Low",
-        "description": "Low drive capacity",
+        "description": "Low driving capability",
         "value": 0
       },
       {
         "name": "MediumHigh",
-        "description": "Medium-high drive capacity",
+        "description": "Medium high driving capability",
         "value": 1
       },
       {
         "name": "MediumLow",
-        "description": "Medium-low drive capacity",
+        "description": "Medium low driving capability",
         "value": 2
       },
       {
         "name": "High",
-        "description": "High drive capacity",
+        "description": "High driving capability",
         "value": 3
-      }
-    ]
-  },
-  "enum/MCO": {
-    "bit_size": 3,
-    "variants": [
-      {
-        "name": "NoMCO",
-        "description": "MCO output disabled, no clock on MCO",
-        "value": 0
-      },
-      {
-        "name": "HSI14",
-        "description": "Internal RC 14 MHz (HSI14) oscillator clock selected",
-        "value": 1
-      },
-      {
-        "name": "LSI",
-        "description": "Internal low speed (LSI) oscillator clock selected",
-        "value": 2
-      },
-      {
-        "name": "LSE",
-        "description": "External low speed (LSE) oscillator clock selected",
-        "value": 3
-      },
-      {
-        "name": "SYSCLK",
-        "description": "System clock selected",
-        "value": 4
-      },
-      {
-        "name": "HSI",
-        "description": "Internal RC 8 MHz (HSI) oscillator clock selected",
-        "value": 5
-      },
-      {
-        "name": "HSE",
-        "description": "External 4-32 MHz (HSE) oscillator clock selected",
-        "value": 6
-      },
-      {
-        "name": "PLL",
-        "description": "PLL clock selected (divided by 1 or 2, depending en PLLNODIV)",
-        "value": 7
-      },
-      {
-        "name": "HSI48",
-        "description": "Internal RC 48 MHz (HSI48) oscillator clock selected",
-        "value": 8
       }
     ]
   },
@@ -1328,6 +1278,71 @@
         "name": "Div128",
         "description": "MCO is divided by 128",
         "value": 7
+      }
+    ]
+  },
+  "enum/MCOSEL": {
+    "bit_size": 3,
+    "variants": [
+      {
+        "name": "NoMCO",
+        "description": "MCO output disabled, no clock on MCO",
+        "value": 0
+      },
+      {
+        "name": "HSI14",
+        "description": "Internal RC 14 MHz (HSI14) oscillator clock selected",
+        "value": 1
+      },
+      {
+        "name": "LSI",
+        "description": "Internal low speed (LSI) oscillator clock selected",
+        "value": 2
+      },
+      {
+        "name": "LSE",
+        "description": "External low speed (LSE) oscillator clock selected",
+        "value": 3
+      },
+      {
+        "name": "SYS",
+        "description": "System clock selected",
+        "value": 4
+      },
+      {
+        "name": "HSI",
+        "description": "Internal RC 8 MHz (HSI) oscillator clock selected",
+        "value": 5
+      },
+      {
+        "name": "HSE",
+        "description": "External 4-32 MHz (HSE) oscillator clock selected",
+        "value": 6
+      },
+      {
+        "name": "PLL",
+        "description": "PLL clock selected (divided by 1 or 2, depending en PLLMCODIV)",
+        "value": 7
+      },
+      {
+        "name": "HSI48",
+        "description": "Internal RC 48 MHz (HSI48) oscillator clock selected",
+        "value": 8
+      }
+    ]
+  },
+  "enum/PLLMCODIV": {
+    "bit_size": 1,
+    "variants": [
+      {
+        "name": "Div2",
+        "description": "PLL is divided by 2 for MCO",
+        "value": 0
+      },
+      {
+        "name": "Div1",
+        "description": "PLL is not divided for MCO",
+        "value": 1
       }
     ]
   },
@@ -1408,26 +1423,6 @@
         "name": "Mul16",
         "description": "PLL input clock x16",
         "value": 14
-      },
-      {
-        "name": "Mul16x",
-        "description": "PLL input clock x16",
-        "value": 15
-      }
-    ]
-  },
-  "enum/PLLNODIV": {
-    "bit_size": 1,
-    "variants": [
-      {
-        "name": "Div2",
-        "description": "PLL is divided by 2 for MCO",
-        "value": 0
-      },
-      {
-        "name": "Div1",
-        "description": "PLL is not divided for MCO",
-        "value": 1
       }
     ]
   },
@@ -1590,7 +1585,7 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "NoClock",
+        "name": "DISABLE",
         "description": "No clock",
         "value": 0
       },
@@ -1616,31 +1611,6 @@
     "variants": [
       {
         "name": "HSI",
-        "description": "HSI selected as system clock",
-        "value": 0
-      },
-      {
-        "name": "HSE",
-        "description": "HSE selected as system clock",
-        "value": 1
-      },
-      {
-        "name": "PLL",
-        "description": "PLL selected as system clock",
-        "value": 2
-      },
-      {
-        "name": "HSI48",
-        "description": "HSI48 selected as system clock (when available)",
-        "value": 3
-      }
-    ]
-  },
-  "enum/SWS": {
-    "bit_size": 2,
-    "variants": [
-      {
-        "name": "HSI",
         "description": "HSI oscillator used as system clock",
         "value": 0
       },
@@ -1650,7 +1620,7 @@
         "value": 1
       },
       {
-        "name": "PLL",
+        "name": "PLL1_P",
         "description": "PLL used as system clock",
         "value": 2
       },
@@ -1665,12 +1635,12 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "PCLK",
+        "name": "PCLK1",
         "description": "PCLK selected as USART clock source",
         "value": 0
       },
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK selected as USART clock source",
         "value": 1
       },
@@ -1695,7 +1665,7 @@
         "value": 0
       },
       {
-        "name": "PLLCLK",
+        "name": "PLL1_P",
         "description": "PLL clock selected as USB clock source",
         "value": 1
       }

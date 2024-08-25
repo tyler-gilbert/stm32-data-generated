@@ -137,28 +137,28 @@
         "description": "source address decrement",
         "bit_offset": 28,
         "bit_size": 1,
-        "enum": "CH_BR1_DEC"
+        "enum": "DEC"
       },
       {
         "name": "DDEC",
         "description": "destination address decrement",
         "bit_offset": 29,
         "bit_size": 1,
-        "enum": "CH_BR1_DEC"
+        "enum": "DEC"
       },
       {
         "name": "BRSDEC",
         "description": "Block repeat source address decrement. Note: On top of this increment/decrement (depending on BRSDEC), CH[x].SAR is in the same time also updated by the increment/decrement (depending on SDEC) of the CH[x].TR3.SAO value, as it is done after any programmed burst transfer.",
         "bit_offset": 30,
         "bit_size": 1,
-        "enum": "CH_BR1_DEC"
+        "enum": "DEC"
       },
       {
         "name": "BRDDEC",
         "description": "Block repeat destination address decrement. Note: On top of this increment/decrement (depending on BRDDEC), CH[x].DAR is in the same time also updated by the increment/decrement (depending on DDEC) of the CH[x].TR3.DAO value, as it is usually done at the end of each programmed burst transfer.",
         "bit_offset": 31,
         "bit_size": 1,
-        "enum": "CH_BR1_DEC"
+        "enum": "DEC"
       }
     ]
   },
@@ -247,21 +247,21 @@
         "description": "Link step mode. First the (possible 1D/repeated) block transfer is executed as defined by the current internal register file until CH[x].BR1.BNDT[15:0] = 0 and CH[x].BR1.BRC[10:0] = 0 if present. Secondly the next linked-list data structure is conditionally uploaded from memory as defined by CH[x].LLR. Then channel execution is completed. Note: This bit must be written when EN=0. This bit is read-only when EN=1.",
         "bit_offset": 16,
         "bit_size": 1,
-        "enum": "CH_CR_LSM"
+        "enum": "LSM"
       },
       {
         "name": "LAP",
         "description": "linked-list allocated port. This bit is used to allocate the master port for the update of the GPDMA linked-list registers from the memory. Note: This bit must be written when EN=0. This bit is read-only when EN=1.",
         "bit_offset": 17,
         "bit_size": 1,
-        "enum": "CH_CR_LAP"
+        "enum": "AP"
       },
       {
         "name": "PRIO",
         "description": "priority level of the channel x GPDMA transfer versus others. Note: This bit must be written when EN = 0. This bit is read-only when EN = 1.",
         "bit_offset": 22,
         "bit_size": 2,
-        "enum": "CH_CR_PRIO"
+        "enum": "PRIO"
       }
     ]
   },
@@ -449,7 +449,7 @@
         "description": "binary logarithm of the source data width of a burst in bytes. Note: Setting a 8-byte data width causes a user setting error to be reported and no transfer is issued. A source block size must be a multiple of the source data width (CH[x].BR1.BNDT[2:0] versus SDW_LOG2[1:0]). Otherwise, a user setting error is reported and no transfer is issued. A source single transfer must have an aligned address with its data width (start address CH[x].SAR[2:0] versus SDW_LOG2[1:0]). Otherwise, a user setting error is reported and none transfer is issued.",
         "bit_offset": 0,
         "bit_size": 2,
-        "enum": "CH_TR1_DW"
+        "enum": "DW"
       },
       {
         "name": "SINC",
@@ -468,7 +468,7 @@
         "description": "padding/alignment mode. If DDW[1:0] = SDW_LOG2[1:0]: if the data width of a burst destination transfer is equal to the data width of a burst source transfer, these bits are ignored. Else: - Case 1: If destination data width > source data width. 1x: successive source data are FIFO queued and packed at the destination data width, in a left (LSB) to right (MSB) order (named little endian), before a destination transfer. - Case 2: If destination data width < source data width. 1x: source data is FIFO queued and unpacked at the destination data width, to be transferred in a left (LSB) to right (MSB) order (named little endian) to the destination. Note:",
         "bit_offset": 11,
         "bit_size": 2,
-        "enum": "CH_TR1_PAM"
+        "enum": "PAM"
       },
       {
         "name": "SBX",
@@ -481,7 +481,7 @@
         "description": "source allocated port. This bit is used to allocate the master port for the source transfer. Note: This bit must be written when EN = 0. This bit is read-only when EN = 1.",
         "bit_offset": 14,
         "bit_size": 1,
-        "enum": "CH_TR1_AP"
+        "enum": "AP"
       },
       {
         "name": "SSEC",
@@ -494,7 +494,7 @@
         "description": "binary logarithm of the destination data width of a burst, in bytes. Note: Setting a 8-byte data width causes a user setting error to be reported and none transfer is issued. A destination burst transfer must have an aligned address with its data width (start address CH[x].DAR[2:0] and address offset CH[x].TR3.DAO[2:0], versus DDW[1:0]). Otherwise a user setting error is reported and no transfer is issued.",
         "bit_offset": 16,
         "bit_size": 2,
-        "enum": "CH_TR1_DW"
+        "enum": "DW"
       },
       {
         "name": "DINC",
@@ -525,7 +525,7 @@
         "description": "destination allocated port. This bit is used to allocate the master port for the destination transfer. Note: This bit must be written when EN = 0. This bit is read-only when EN = 1.",
         "bit_offset": 30,
         "bit_size": 1,
-        "enum": "CH_TR1_AP"
+        "enum": "AP"
       },
       {
         "name": "DSEC",
@@ -549,28 +549,28 @@
         "description": "software request. This bit is internally taken into account when CH[x].CR.EN is asserted.",
         "bit_offset": 9,
         "bit_size": 1,
-        "enum": "CH_TR2_SWREQ"
+        "enum": "SWREQ"
       },
       {
         "name": "DREQ",
         "description": "destination hardware request. This bit is ignored if channel x is activated (CH[x].CR.EN asserted) with SWREQ = 1 (software request for a memory-to-memory transfer). Else: Note:",
         "bit_offset": 10,
         "bit_size": 1,
-        "enum": "CH_TR2_DREQ"
+        "enum": "DREQ"
       },
       {
         "name": "BREQ",
         "description": "Block hardware request. If the channel x is activated (CH[x].CR.EN asserted) with SWREQ = 1 (software request for a memory-to-memory transfer), this bit is ignored. Else:",
         "bit_offset": 11,
         "bit_size": 1,
-        "enum": "CH_TR2_BREQ"
+        "enum": "BREQ"
       },
       {
         "name": "TRIGM",
         "description": "trigger mode. These bits define the transfer granularity for its conditioning by the trigger. If the channel x is enabled (CH[x].CR.EN asserted) with TRIGPOL[1:0] = 00 or 11, these TRIGM[1:0] bits are ignored. Else, a GPDMA transfer is conditioned by at least one trigger hit: first burst read of a 2D/repeated block transfer is conditioned by one hit trigger. – If the peripheral is programmed as a source (DREQ = 0) of the LLI data transfer, each programmed burst read is conditioned. – If the peripheral is programmed as a destination (DREQ = 1) of the LLI data transfer, each programmed burst write is conditioned. The first memory burst read of a (possibly 2D/repeated) block, also named as the first ready FIFO-based source burst, is gated by the occurrence of both the hardware request and the first trigger hit. The GPDMA monitoring of a trigger for channel x is started when the channel is enabled/loaded with a new active trigger configuration: rising or falling edge on a selected trigger (TRIGPOL[1:0] = 01 or respectively TRIGPOL[1:0] = 10). The monitoring of this trigger is kept active during the triggered and uncompleted (data or link) transfer; and if a new trigger is detected then, this hit is internally memorized to grant the next transfer, as long as the defined rising or falling edge is not modified, and the TRIGSEL[5:0] is not modified, and the channel is enabled. Transferring a next LLIn+1 that updates the CH[x].TR2 with a new value for any of TRIGSEL[5:0] or TRIGPOL[1:0], resets the monitoring, trashing the memorized hit of the formerly defined LLIn trigger. After a first new trigger hitn+1 is memorized, if another second trigger hitn+2 is detected and if the hitn triggered transfer is still not completed, hitn+2 is lost and not memorized.memorized. A trigger overrun flag is reported (CH[x].SR.TOF =1 ), and an interrupt is generated if enabled (CH[x].CR.TOIE = 1). The channel is not automatically disabled by hardware due to a trigger overrun. Note: When the source block size is not a multiple of the source burst size and is a multiple of the source data width, then the last programmed source burst is not completed and is internally shorten to match the block size. In this case, if TRIGM[1:0] = 11 and (SWREQ =1  or (SWREQ = 0 and DREQ =0 )), the shortened burst transfer (by singles or/and by bursts of lower length) is conditioned once by the trigger. When the programmed destination burst is internally shortened by singles or/and by bursts of lower length (versus FIFO size, versus block size, 1-Kbyte boundary address crossing): if the trigger is conditioning the programmed destination burst (if TRIGM[1:0] = 11 and SWREQ = 0 and DREQ = 1), this shortened destination burst transfer is conditioned once by the trigger.",
         "bit_offset": 14,
         "bit_size": 2,
-        "enum": "CH_TR2_TRIGM"
+        "enum": "TRIGM"
       },
       {
         "name": "TRIGSEL",
@@ -583,14 +583,14 @@
         "description": "trigger event polarity. These bits define the polarity of the selected trigger event input defined by TRIGSEL[5:0].",
         "bit_offset": 24,
         "bit_size": 2,
-        "enum": "CH_TR2_TRIGPOL"
+        "enum": "TRIGPOL"
       },
       {
         "name": "TCEM",
         "description": "transfer complete event mode. These bits define the transfer granularity for the transfer complete and half transfer complete events generation. Note: If the initial LLI0 data transfer is null/void (directly programmed by the internal register file with CH[x].BR1.BNDT[15:0] = 0), then neither the complete transfer event nor the half transfer event is generated. Note: If the initial LLI0 data transfer is null/void (directly programmed by the internal register file with CH[x].BR1.BNDT[15:0] = 0), then neither the complete transfer event nor the half transfer event is generated. Note: If the initial LLI0 data transfer is null/void (i.e. directly programmed by the internal register file with CH[x].BR1.BNDT[15:0] =0 ), then the half transfer event is not generated, and the transfer complete event is generated when is completed the loading of the LLI1.",
         "bit_offset": 30,
         "bit_size": 2,
-        "enum": "CH_TR2_TCEM"
+        "enum": "TCEM"
       }
     ]
   },
@@ -671,22 +671,7 @@
       }
     ]
   },
-  "enum/CH_BR1_DEC": {
-    "bit_size": 1,
-    "variants": [
-      {
-        "name": "Add",
-        "description": "The address is incremented by the programmed offset.",
-        "value": 0
-      },
-      {
-        "name": "Subtract",
-        "description": "The address is decremented by the programmed offset.",
-        "value": 1
-      }
-    ]
-  },
-  "enum/CH_CR_LAP": {
+  "enum/AP": {
     "bit_size": 1,
     "variants": [
       {
@@ -701,7 +686,72 @@
       }
     ]
   },
-  "enum/CH_CR_LSM": {
+  "enum/BREQ": {
+    "bit_size": 1,
+    "variants": [
+      {
+        "name": "Burst",
+        "description": "the selected hardware request is driven by a peripheral with a hardware request/acknowledge protocol at a burst level.",
+        "value": 0
+      },
+      {
+        "name": "Block",
+        "description": "the selected hardware request is driven by a peripheral with a hardware request/acknowledge protocol at a block level (see ).",
+        "value": 1
+      }
+    ]
+  },
+  "enum/DEC": {
+    "bit_size": 1,
+    "variants": [
+      {
+        "name": "Add",
+        "description": "The address is incremented by the programmed offset.",
+        "value": 0
+      },
+      {
+        "name": "Subtract",
+        "description": "The address is decremented by the programmed offset.",
+        "value": 1
+      }
+    ]
+  },
+  "enum/DREQ": {
+    "bit_size": 1,
+    "variants": [
+      {
+        "name": "SourcePeripheral",
+        "description": "selected hardware request driven by a source peripheral (request signal taken into account by the GPDMA transfer scheduler over the source/read port)",
+        "value": 0
+      },
+      {
+        "name": "DestinationPeripheral",
+        "description": "selected hardware request driven by a destination peripheral (request signal taken into account by the GPDMA transfer scheduler over the destination/write port)",
+        "value": 1
+      }
+    ]
+  },
+  "enum/DW": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "Byte",
+        "description": "byte",
+        "value": 0
+      },
+      {
+        "name": "HalfWord",
+        "description": "half-word (2 bytes)",
+        "value": 1
+      },
+      {
+        "name": "Word",
+        "description": "word (4 bytes)",
+        "value": 2
+      }
+    ]
+  },
+  "enum/LSM": {
     "bit_size": 1,
     "variants": [
       {
@@ -716,7 +766,27 @@
       }
     ]
   },
-  "enum/CH_CR_PRIO": {
+  "enum/PAM": {
+    "bit_size": 2,
+    "variants": [
+      {
+        "name": "ZeroExtendOrLeftTruncate",
+        "description": "If destination is wider: source data is transferred as right aligned, padded with 0s up to the destination data width\nIf source is wider: source data is transferred as right aligned, left-truncated down to the destination data width",
+        "value": 0
+      },
+      {
+        "name": "SignExtendOrRightTruncate",
+        "description": "If destination is wider: source data is transferred as right aligned, sign extended up to the destination data width\nIf source is wider: source data is transferred as left-aligned, right-truncated down to the destination data width",
+        "value": 1
+      },
+      {
+        "name": "Pack",
+        "description": "source data is FIFO queued and packed/unpacked at the destination data width, to be transferred in a left (LSB) to right (MSB) order (named little endian) to the destination",
+        "value": 2
+      }
+    ]
+  },
+  "enum/PRIO": {
     "bit_size": 2,
     "variants": [
       {
@@ -741,92 +811,7 @@
       }
     ]
   },
-  "enum/CH_TR1_AP": {
-    "bit_size": 1,
-    "variants": [
-      {
-        "name": "Port0",
-        "description": "port 0 (AHB) allocated",
-        "value": 0
-      },
-      {
-        "name": "Port1",
-        "description": "port 1 (AHB) allocated",
-        "value": 1
-      }
-    ]
-  },
-  "enum/CH_TR1_DW": {
-    "bit_size": 2,
-    "variants": [
-      {
-        "name": "Byte",
-        "description": "byte",
-        "value": 0
-      },
-      {
-        "name": "HalfWord",
-        "description": "half-word (2 bytes)",
-        "value": 1
-      },
-      {
-        "name": "Word",
-        "description": "word (4 bytes)",
-        "value": 2
-      }
-    ]
-  },
-  "enum/CH_TR1_PAM": {
-    "bit_size": 2,
-    "variants": [
-      {
-        "name": "ZeroExtendOrLeftTruncate",
-        "description": "If destination is wider: source data is transferred as right aligned, padded with 0s up to the destination data width\nIf source is wider: source data is transferred as right aligned, left-truncated down to the destination data width",
-        "value": 0
-      },
-      {
-        "name": "SignExtendOrRightTruncate",
-        "description": "If destination is wider: source data is transferred as right aligned, sign extended up to the destination data width\nIf source is wider: source data is transferred as left-aligned, right-truncated down to the destination data width",
-        "value": 1
-      },
-      {
-        "name": "Pack",
-        "description": "source data is FIFO queued and packed/unpacked at the destination data width, to be transferred in a left (LSB) to right (MSB) order (named little endian) to the destination",
-        "value": 2
-      }
-    ]
-  },
-  "enum/CH_TR2_BREQ": {
-    "bit_size": 1,
-    "variants": [
-      {
-        "name": "Burst",
-        "description": "the selected hardware request is driven by a peripheral with a hardware request/acknowledge protocol at a burst level.",
-        "value": 0
-      },
-      {
-        "name": "Block",
-        "description": "the selected hardware request is driven by a peripheral with a hardware request/acknowledge protocol at a block level (see ).",
-        "value": 1
-      }
-    ]
-  },
-  "enum/CH_TR2_DREQ": {
-    "bit_size": 1,
-    "variants": [
-      {
-        "name": "SourcePeripheral",
-        "description": "selected hardware request driven by a source peripheral (request signal taken into account by the GPDMA transfer scheduler over the source/read port)",
-        "value": 0
-      },
-      {
-        "name": "DestinationPeripheral",
-        "description": "selected hardware request driven by a destination peripheral (request signal taken into account by the GPDMA transfer scheduler over the destination/write port)",
-        "value": 1
-      }
-    ]
-  },
-  "enum/CH_TR2_SWREQ": {
+  "enum/SWREQ": {
     "bit_size": 1,
     "variants": [
       {
@@ -841,7 +826,7 @@
       }
     ]
   },
-  "enum/CH_TR2_TCEM": {
+  "enum/TCEM": {
     "bit_size": 2,
     "variants": [
       {
@@ -866,7 +851,7 @@
       }
     ]
   },
-  "enum/CH_TR2_TRIGM": {
+  "enum/TRIGM": {
     "bit_size": 2,
     "variants": [
       {
@@ -891,7 +876,7 @@
       }
     ]
   },
-  "enum/CH_TR2_TRIGPOL": {
+  "enum/TRIGPOL": {
     "bit_size": 2,
     "variants": [
       {

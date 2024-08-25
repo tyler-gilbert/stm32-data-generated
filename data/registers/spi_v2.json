@@ -21,10 +21,16 @@
         "fieldset": "SR"
       },
       {
-        "name": "DR",
-        "description": "data register",
+        "name": "DR16",
+        "description": "data register - half-word sized",
         "byte_offset": 12,
-        "fieldset": "DR"
+        "bit_size": 16
+      },
+      {
+        "name": "DR8",
+        "description": "data register - byte sized",
+        "byte_offset": 12,
+        "bit_size": 8
       },
       {
         "name": "CRCPR",
@@ -145,7 +151,7 @@
       },
       {
         "name": "BIDIOE",
-        "description": "Output enable in bidirectional mode",
+        "description": "Select the direction of transfer in bidirectional mode",
         "bit_offset": 14,
         "bit_size": 1,
         "enum": "BIDIOE"
@@ -252,17 +258,6 @@
       }
     ]
   },
-  "fieldset/DR": {
-    "description": "data register",
-    "fields": [
-      {
-        "name": "DR",
-        "description": "Data register",
-        "bit_offset": 0,
-        "bit_size": 16
-      }
-    ]
-  },
   "fieldset/I2SCFGR": {
     "description": "I2S configuration register",
     "fields": [
@@ -310,10 +305,9 @@
       },
       {
         "name": "I2SE",
-        "description": "I2S Enable",
+        "description": "I2S Enabled",
         "bit_offset": 10,
-        "bit_size": 1,
-        "enum": "ISE"
+        "bit_size": 1
       },
       {
         "name": "I2SMOD",
@@ -350,8 +344,7 @@
         "name": "MCKOE",
         "description": "Master clock output enable",
         "bit_offset": 9,
-        "bit_size": 1,
-        "enum": "MCKOE"
+        "bit_size": 1
       }
     ]
   },
@@ -470,12 +463,12 @@
     "bit_size": 1,
     "variants": [
       {
-        "name": "OutputDisabled",
+        "name": "Receive",
         "description": "Output disabled (receive-only mode)",
         "value": 0
       },
       {
-        "name": "OutputEnabled",
+        "name": "Transmit",
         "description": "Output enabled (transmit-only mode)",
         "value": 1
       }
@@ -530,12 +523,12 @@
     "bit_size": 1,
     "variants": [
       {
-        "name": "SixteenBit",
+        "name": "Bits16",
         "description": "16-bit wide",
         "value": 0
       },
       {
-        "name": "ThirtyTwoBit",
+        "name": "Bits32",
         "description": "32-bit wide",
         "value": 1
       }
@@ -605,12 +598,12 @@
     "bit_size": 1,
     "variants": [
       {
-        "name": "EightBit",
+        "name": "Bits8",
         "description": "8-bit CRC length",
         "value": 0
       },
       {
-        "name": "SixteenBit",
+        "name": "Bits16",
         "description": "16-bit CRC length",
         "value": 1
       }
@@ -635,17 +628,17 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "SixteenBit",
+        "name": "Bits16",
         "description": "16-bit data length",
         "value": 0
       },
       {
-        "name": "TwentyFourBit",
+        "name": "Bits24",
         "description": "24-bit data length",
         "value": 1
       },
       {
-        "name": "ThirtyTwoBit",
+        "name": "Bits32",
         "description": "32-bit data length",
         "value": 2
       }
@@ -655,67 +648,67 @@
     "bit_size": 4,
     "variants": [
       {
-        "name": "FourBit",
+        "name": "Bits4",
         "description": "4-bit",
         "value": 3
       },
       {
-        "name": "FiveBit",
+        "name": "Bits5",
         "description": "5-bit",
         "value": 4
       },
       {
-        "name": "SixBit",
+        "name": "Bits6",
         "description": "6-bit",
         "value": 5
       },
       {
-        "name": "SevenBit",
+        "name": "Bits7",
         "description": "7-bit",
         "value": 6
       },
       {
-        "name": "EightBit",
+        "name": "Bits8",
         "description": "8-bit",
         "value": 7
       },
       {
-        "name": "NineBit",
+        "name": "Bits9",
         "description": "9-bit",
         "value": 8
       },
       {
-        "name": "TenBit",
+        "name": "Bits10",
         "description": "10-bit",
         "value": 9
       },
       {
-        "name": "ElevenBit",
+        "name": "Bits11",
         "description": "11-bit",
         "value": 10
       },
       {
-        "name": "TwelveBit",
+        "name": "Bits12",
         "description": "12-bit",
         "value": 11
       },
       {
-        "name": "ThirteenBit",
+        "name": "Bits13",
         "description": "13-bit",
         "value": 12
       },
       {
-        "name": "FourteenBit",
+        "name": "Bits14",
         "description": "14-bit",
         "value": 13
       },
       {
-        "name": "FifteenBit",
+        "name": "Bits15",
         "description": "15-bit",
         "value": 14
       },
       {
-        "name": "SixteenBit",
+        "name": "Bits16",
         "description": "16-bit",
         "value": 15
       }
@@ -826,21 +819,6 @@
       }
     ]
   },
-  "enum/ISE": {
-    "bit_size": 1,
-    "variants": [
-      {
-        "name": "Disabled",
-        "description": "I2S peripheral is disabled",
-        "value": 0
-      },
-      {
-        "name": "Enabled",
-        "description": "I2S peripheral is enabled",
-        "value": 1
-      }
-    ]
-  },
   "enum/ISMOD": {
     "bit_size": 1,
     "variants": [
@@ -922,21 +900,6 @@
       {
         "name": "LSBFirst",
         "description": "Data is transmitted/received with the LSB first",
-        "value": 1
-      }
-    ]
-  },
-  "enum/MCKOE": {
-    "bit_size": 1,
-    "variants": [
-      {
-        "name": "Disabled",
-        "description": "Master clock output is disabled",
-        "value": 0
-      },
-      {
-        "name": "Enabled",
-        "description": "Master clock output is enabled",
         "value": 1
       }
     ]

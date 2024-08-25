@@ -41,9 +41,10 @@
       },
       {
         "name": "DMACFG",
-        "description": "DMA configuration (for multi-ADC mode)",
+        "description": "Direct memory access configuration",
         "bit_offset": 13,
-        "bit_size": 1
+        "bit_size": 1,
+        "enum": "DMACFG"
       },
       {
         "name": "MDMA",
@@ -140,22 +141,14 @@
         "bit_size": 1
       },
       {
-        "name": "AWD1_MST",
-        "description": "AWD1_MST",
+        "name": "AWD_MST",
+        "description": "Analog watchdog flag of the master ADC",
         "bit_offset": 7,
-        "bit_size": 1
-      },
-      {
-        "name": "AWD2_MST",
-        "description": "AWD2_MST",
-        "bit_offset": 8,
-        "bit_size": 1
-      },
-      {
-        "name": "AWD3_MST",
-        "description": "AWD3_MST",
-        "bit_offset": 9,
-        "bit_size": 1
+        "bit_size": 1,
+        "array": {
+          "len": 3,
+          "stride": 1
+        }
       },
       {
         "name": "JQOVF_MST",
@@ -206,28 +199,35 @@
         "bit_size": 1
       },
       {
-        "name": "AWD1_SLV",
+        "name": "AWD_SLV",
         "description": "Analog watchdog 1 flag of the slave ADC",
         "bit_offset": 23,
-        "bit_size": 1
-      },
-      {
-        "name": "AWD2_SLV",
-        "description": "Analog watchdog 2 flag of the slave ADC",
-        "bit_offset": 24,
-        "bit_size": 1
-      },
-      {
-        "name": "AWD3_SLV",
-        "description": "Analog watchdog 3 flag of the slave ADC",
-        "bit_offset": 25,
-        "bit_size": 1
+        "bit_size": 1,
+        "array": {
+          "len": 3,
+          "stride": 1
+        }
       },
       {
         "name": "JQOVF_SLV",
         "description": "Injected Context Queue Overflow flag of the slave ADC",
         "bit_offset": 26,
         "bit_size": 1
+      }
+    ]
+  },
+  "enum/DMACFG": {
+    "bit_size": 1,
+    "variants": [
+      {
+        "name": "OneShot",
+        "description": "DMA One Shot mode selected",
+        "value": 0
+      },
+      {
+        "name": "Circular",
+        "description": "DMA Circular mode selected",
+        "value": 1
       }
     ]
   }

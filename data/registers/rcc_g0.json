@@ -21,10 +21,10 @@
         "fieldset": "CFGR"
       },
       {
-        "name": "PLLSYSCFGR",
+        "name": "PLLCFGR",
         "description": "PLL configuration register",
         "byte_offset": 12,
-        "fieldset": "PLLSYSCFGR"
+        "fieldset": "PLLCFGR"
       },
       {
         "name": "CRRCR",
@@ -1081,21 +1081,21 @@
         "description": "USART1 clock source selection",
         "bit_offset": 0,
         "bit_size": 2,
-        "enum": "USART1SEL"
+        "enum": "USARTSEL"
       },
       {
         "name": "USART2SEL",
         "description": "USART2 clock source selection",
         "bit_offset": 2,
         "bit_size": 2,
-        "enum": "USART2SEL"
+        "enum": "USARTSEL"
       },
       {
         "name": "USART3SEL",
         "description": "USART3 clock source selection",
         "bit_offset": 4,
         "bit_size": 2,
-        "enum": "USART3SEL"
+        "enum": "USARTSEL"
       },
       {
         "name": "CECSEL",
@@ -1126,8 +1126,8 @@
         "enum": "I2C1SEL"
       },
       {
-        "name": "I2S2SEL",
-        "description": "I2S1 clock source selection",
+        "name": "I2C2I2S1SEL",
+        "description": "I2C2 or I2S1 clock source selection",
         "bit_offset": 14,
         "bit_size": 2,
         "enum": "I2C2I2S1SEL"
@@ -1262,17 +1262,17 @@
         "enum": "MCOPRE"
       },
       {
-        "name": "MCOSEL",
+        "name": "MCO1SEL",
         "description": "Microcontroller clock output",
         "bit_offset": 24,
-        "bit_size": 3,
+        "bit_size": 4,
         "enum": "MCOSEL"
       },
       {
-        "name": "MCOPRE",
+        "name": "MCO1PRE",
         "description": "Microcontroller clock output prescaler",
         "bit_offset": 28,
-        "bit_size": 3,
+        "bit_size": 4,
         "enum": "MCOPRE"
       }
     ]
@@ -1423,25 +1423,25 @@
     "fields": [
       {
         "name": "HSION",
-        "description": "HSI16 clock enable",
+        "description": "HSI clock enable",
         "bit_offset": 8,
         "bit_size": 1
       },
       {
         "name": "HSIKERON",
-        "description": "HSI16 always enable for peripheral kernels",
+        "description": "HSI always enable for peripheral kernels",
         "bit_offset": 9,
         "bit_size": 1
       },
       {
         "name": "HSIRDY",
-        "description": "HSI16 clock ready flag",
+        "description": "HSI clock ready flag",
         "bit_offset": 10,
         "bit_size": 1
       },
       {
         "name": "HSIDIV",
-        "description": "HSI16 clock division factor",
+        "description": "HSI clock division factor",
         "bit_offset": 11,
         "bit_size": 3,
         "enum": "HSIDIV"
@@ -1682,19 +1682,19 @@
     "fields": [
       {
         "name": "HSICAL",
-        "description": "HSI16 clock calibration",
+        "description": "HSI clock calibration",
         "bit_offset": 0,
         "bit_size": 8
       },
       {
         "name": "HSITRIM",
-        "description": "HSI16 clock trimming",
+        "description": "HSI clock trimming",
         "bit_offset": 8,
         "bit_size": 7
       }
     ]
   },
-  "fieldset/PLLSYSCFGR": {
+  "fieldset/PLLCFGR": {
     "description": "PLL configuration register",
     "fields": [
       {
@@ -1708,13 +1708,15 @@
         "name": "PLLM",
         "description": "Division factor M of the PLL input clock divider",
         "bit_offset": 4,
-        "bit_size": 3
+        "bit_size": 3,
+        "enum": "PLLM"
       },
       {
         "name": "PLLN",
         "description": "PLL frequency multiplication factor N",
         "bit_offset": 8,
-        "bit_size": 7
+        "bit_size": 7,
+        "enum": "PLLN"
       },
       {
         "name": "PLLPEN",
@@ -1726,7 +1728,8 @@
         "name": "PLLP",
         "description": "PLL VCO division factor P for PLLPCLK clock output",
         "bit_offset": 17,
-        "bit_size": 5
+        "bit_size": 5,
+        "enum": "PLLP"
       },
       {
         "name": "PLLQEN",
@@ -1738,7 +1741,8 @@
         "name": "PLLQ",
         "description": "PLL VCO division factor Q for PLLQCLK clock output",
         "bit_offset": 25,
-        "bit_size": 3
+        "bit_size": 3,
+        "enum": "PLLQ"
       },
       {
         "name": "PLLREN",
@@ -1750,7 +1754,8 @@
         "name": "PLLR",
         "description": "PLL VCO division factor R for PLLRCLK clock output",
         "bit_offset": 29,
-        "bit_size": 3
+        "bit_size": 3,
+        "enum": "PLLR"
       }
     ]
   },
@@ -1758,18 +1763,18 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK used as ADC clock source",
         "value": 0
       },
       {
-        "name": "PLLPCLK",
+        "name": "PLL1_P",
         "description": "PLLPCLK used as ADC clock source",
         "value": 1
       },
       {
-        "name": "HSI16",
-        "description": "HSI16 used as ADC clock source",
+        "name": "HSI",
+        "description": "HSI used as ADC clock source",
         "value": 2
       }
     ]
@@ -1778,8 +1783,8 @@
     "bit_size": 1,
     "variants": [
       {
-        "name": "HSI16_Div488",
-        "description": "HSI16 divided by 488 used as CEC clock",
+        "name": "HSI_DIV_488",
+        "description": "HSI divided by 488 used as CEC clock",
         "value": 0
       },
       {
@@ -1793,12 +1798,12 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "PCLK",
+        "name": "PCLK1",
         "description": "PCLK used as FDCAN clock source",
         "value": 0
       },
       {
-        "name": "PLLQCLK",
+        "name": "PLL1_Q",
         "description": "PLLQCLK used as FDCAN clock source",
         "value": 1
       },
@@ -1908,18 +1913,18 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "PCLK",
+        "name": "PCLK1",
         "description": "PCLK used as I2C1 clock source",
         "value": 0
       },
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK used as I2C1 clock source",
         "value": 1
       },
       {
-        "name": "HSI16",
-        "description": "HSI16 used as I2C1 clock source",
+        "name": "HSI",
+        "description": "HSI used as I2C1 clock source",
         "value": 2
       }
     ]
@@ -1928,18 +1933,18 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "PCLK",
+        "name": "PCLK1",
         "description": "PCLK used as I2C2/I2S2 clock source",
         "value": 0
       },
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK used as I2C2/I2S2 clock source",
         "value": 1
       },
       {
-        "name": "HSI16",
-        "description": "HSI16 used as I2C2/I2S2 clock source",
+        "name": "HSI",
+        "description": "HSI used as I2C2/I2S2 clock source",
         "value": 2
       },
       {
@@ -1953,17 +1958,17 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK used as I2S1 clock source",
         "value": 0
       },
       {
-        "name": "PLLPCLK",
+        "name": "PLL1_P",
         "description": "PLLPCLK used as I2S1 clock source",
         "value": 1
       },
       {
-        "name": "HSI16",
+        "name": "HSI",
         "description": "HSI used as I2S1 clock source",
         "value": 2
       },
@@ -1978,17 +1983,17 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK used as I2S2 clock source",
         "value": 0
       },
       {
-        "name": "PLLPCLK",
+        "name": "PLL1_P",
         "description": "PLLPCLK used as I2S2 clock source",
         "value": 1
       },
       {
-        "name": "HSI16",
+        "name": "HSI",
         "description": "HSI used as I2S2 clock source",
         "value": 2
       },
@@ -2003,7 +2008,7 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "PCLK",
+        "name": "PCLK1",
         "description": "PCLK used as LPTIM1 clock source",
         "value": 0
       },
@@ -2013,8 +2018,8 @@
         "value": 1
       },
       {
-        "name": "HSI16",
-        "description": "HSI16 used as LPTIM1 clock source",
+        "name": "HSI",
+        "description": "HSI used as LPTIM1 clock source",
         "value": 2
       },
       {
@@ -2028,7 +2033,7 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "PCLK",
+        "name": "PCLK1",
         "description": "PCLK used as LPTIM2 clock source",
         "value": 0
       },
@@ -2038,8 +2043,8 @@
         "value": 1
       },
       {
-        "name": "HSI16",
-        "description": "HSI16 used as LPTIM2 clock source",
+        "name": "HSI",
+        "description": "HSI used as LPTIM2 clock source",
         "value": 2
       },
       {
@@ -2053,18 +2058,18 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "PCLK",
+        "name": "PCLK1",
         "description": "PCLK used as LPUART1 clock source",
         "value": 0
       },
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK used as LPUART1 clock source",
         "value": 1
       },
       {
-        "name": "HSI16",
-        "description": "HSI16 used as LPUART1 clock source",
+        "name": "HSI",
+        "description": "HSI used as LPUART1 clock source",
         "value": 2
       },
       {
@@ -2078,18 +2083,18 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "PCLK",
+        "name": "PCLK1",
         "description": "PCLK used as LPUART2 clock source",
         "value": 0
       },
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK used as LPUART2 clock source",
         "value": 1
       },
       {
-        "name": "HSI16",
-        "description": "HSI16 used as LPUART2 clock source",
+        "name": "HSI",
+        "description": "HSI used as LPUART2 clock source",
         "value": 2
       },
       {
@@ -2188,12 +2193,12 @@
     "bit_size": 4,
     "variants": [
       {
-        "name": "NoClock",
+        "name": "DISABLE",
         "description": "No clock, MCO output disabled",
         "value": 0
       },
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK selected as MCO source",
         "value": 1
       },
@@ -2203,8 +2208,8 @@
         "value": 2
       },
       {
-        "name": "HSI16",
-        "description": "HSI16 selected as MCO source",
+        "name": "HSI",
+        "description": "HSI selected as MCO source",
         "value": 3
       },
       {
@@ -2228,12 +2233,12 @@
         "value": 7
       },
       {
-        "name": "PLLPCLK",
+        "name": "PLL1_P",
         "description": "PLLPCLK selected as MCO source",
         "value": 8
       },
       {
-        "name": "PLLQCLK",
+        "name": "PLL1_Q",
         "description": "PLLQCLK selected as MCO source",
         "value": 9
       },
@@ -2249,17 +2254,570 @@
       }
     ]
   },
+  "enum/PLLM": {
+    "bit_size": 3,
+    "variants": [
+      {
+        "name": "Div1",
+        "value": 0
+      },
+      {
+        "name": "Div2",
+        "value": 1
+      },
+      {
+        "name": "Div3",
+        "value": 2
+      },
+      {
+        "name": "Div4",
+        "value": 3
+      },
+      {
+        "name": "Div5",
+        "value": 4
+      },
+      {
+        "name": "Div6",
+        "value": 5
+      },
+      {
+        "name": "Div7",
+        "value": 6
+      },
+      {
+        "name": "Div8",
+        "value": 7
+      }
+    ]
+  },
+  "enum/PLLN": {
+    "bit_size": 7,
+    "variants": [
+      {
+        "name": "Mul8",
+        "value": 8
+      },
+      {
+        "name": "Mul9",
+        "value": 9
+      },
+      {
+        "name": "Mul10",
+        "value": 10
+      },
+      {
+        "name": "Mul11",
+        "value": 11
+      },
+      {
+        "name": "Mul12",
+        "value": 12
+      },
+      {
+        "name": "Mul13",
+        "value": 13
+      },
+      {
+        "name": "Mul14",
+        "value": 14
+      },
+      {
+        "name": "Mul15",
+        "value": 15
+      },
+      {
+        "name": "Mul16",
+        "value": 16
+      },
+      {
+        "name": "Mul17",
+        "value": 17
+      },
+      {
+        "name": "Mul18",
+        "value": 18
+      },
+      {
+        "name": "Mul19",
+        "value": 19
+      },
+      {
+        "name": "Mul20",
+        "value": 20
+      },
+      {
+        "name": "Mul21",
+        "value": 21
+      },
+      {
+        "name": "Mul22",
+        "value": 22
+      },
+      {
+        "name": "Mul23",
+        "value": 23
+      },
+      {
+        "name": "Mul24",
+        "value": 24
+      },
+      {
+        "name": "Mul25",
+        "value": 25
+      },
+      {
+        "name": "Mul26",
+        "value": 26
+      },
+      {
+        "name": "Mul27",
+        "value": 27
+      },
+      {
+        "name": "Mul28",
+        "value": 28
+      },
+      {
+        "name": "Mul29",
+        "value": 29
+      },
+      {
+        "name": "Mul30",
+        "value": 30
+      },
+      {
+        "name": "Mul31",
+        "value": 31
+      },
+      {
+        "name": "Mul32",
+        "value": 32
+      },
+      {
+        "name": "Mul33",
+        "value": 33
+      },
+      {
+        "name": "Mul34",
+        "value": 34
+      },
+      {
+        "name": "Mul35",
+        "value": 35
+      },
+      {
+        "name": "Mul36",
+        "value": 36
+      },
+      {
+        "name": "Mul37",
+        "value": 37
+      },
+      {
+        "name": "Mul38",
+        "value": 38
+      },
+      {
+        "name": "Mul39",
+        "value": 39
+      },
+      {
+        "name": "Mul40",
+        "value": 40
+      },
+      {
+        "name": "Mul41",
+        "value": 41
+      },
+      {
+        "name": "Mul42",
+        "value": 42
+      },
+      {
+        "name": "Mul43",
+        "value": 43
+      },
+      {
+        "name": "Mul44",
+        "value": 44
+      },
+      {
+        "name": "Mul45",
+        "value": 45
+      },
+      {
+        "name": "Mul46",
+        "value": 46
+      },
+      {
+        "name": "Mul47",
+        "value": 47
+      },
+      {
+        "name": "Mul48",
+        "value": 48
+      },
+      {
+        "name": "Mul49",
+        "value": 49
+      },
+      {
+        "name": "Mul50",
+        "value": 50
+      },
+      {
+        "name": "Mul51",
+        "value": 51
+      },
+      {
+        "name": "Mul52",
+        "value": 52
+      },
+      {
+        "name": "Mul53",
+        "value": 53
+      },
+      {
+        "name": "Mul54",
+        "value": 54
+      },
+      {
+        "name": "Mul55",
+        "value": 55
+      },
+      {
+        "name": "Mul56",
+        "value": 56
+      },
+      {
+        "name": "Mul57",
+        "value": 57
+      },
+      {
+        "name": "Mul58",
+        "value": 58
+      },
+      {
+        "name": "Mul59",
+        "value": 59
+      },
+      {
+        "name": "Mul60",
+        "value": 60
+      },
+      {
+        "name": "Mul61",
+        "value": 61
+      },
+      {
+        "name": "Mul62",
+        "value": 62
+      },
+      {
+        "name": "Mul63",
+        "value": 63
+      },
+      {
+        "name": "Mul64",
+        "value": 64
+      },
+      {
+        "name": "Mul65",
+        "value": 65
+      },
+      {
+        "name": "Mul66",
+        "value": 66
+      },
+      {
+        "name": "Mul67",
+        "value": 67
+      },
+      {
+        "name": "Mul68",
+        "value": 68
+      },
+      {
+        "name": "Mul69",
+        "value": 69
+      },
+      {
+        "name": "Mul70",
+        "value": 70
+      },
+      {
+        "name": "Mul71",
+        "value": 71
+      },
+      {
+        "name": "Mul72",
+        "value": 72
+      },
+      {
+        "name": "Mul73",
+        "value": 73
+      },
+      {
+        "name": "Mul74",
+        "value": 74
+      },
+      {
+        "name": "Mul75",
+        "value": 75
+      },
+      {
+        "name": "Mul76",
+        "value": 76
+      },
+      {
+        "name": "Mul77",
+        "value": 77
+      },
+      {
+        "name": "Mul78",
+        "value": 78
+      },
+      {
+        "name": "Mul79",
+        "value": 79
+      },
+      {
+        "name": "Mul80",
+        "value": 80
+      },
+      {
+        "name": "Mul81",
+        "value": 81
+      },
+      {
+        "name": "Mul82",
+        "value": 82
+      },
+      {
+        "name": "Mul83",
+        "value": 83
+      },
+      {
+        "name": "Mul84",
+        "value": 84
+      },
+      {
+        "name": "Mul85",
+        "value": 85
+      },
+      {
+        "name": "Mul86",
+        "value": 86
+      }
+    ]
+  },
+  "enum/PLLP": {
+    "bit_size": 5,
+    "variants": [
+      {
+        "name": "Div2",
+        "value": 1
+      },
+      {
+        "name": "Div3",
+        "value": 2
+      },
+      {
+        "name": "Div4",
+        "value": 3
+      },
+      {
+        "name": "Div5",
+        "value": 4
+      },
+      {
+        "name": "Div6",
+        "value": 5
+      },
+      {
+        "name": "Div7",
+        "value": 6
+      },
+      {
+        "name": "Div8",
+        "value": 7
+      },
+      {
+        "name": "Div9",
+        "value": 8
+      },
+      {
+        "name": "Div10",
+        "value": 9
+      },
+      {
+        "name": "Div11",
+        "value": 10
+      },
+      {
+        "name": "Div12",
+        "value": 11
+      },
+      {
+        "name": "Div13",
+        "value": 12
+      },
+      {
+        "name": "Div14",
+        "value": 13
+      },
+      {
+        "name": "Div15",
+        "value": 14
+      },
+      {
+        "name": "Div16",
+        "value": 15
+      },
+      {
+        "name": "Div17",
+        "value": 16
+      },
+      {
+        "name": "Div18",
+        "value": 17
+      },
+      {
+        "name": "Div19",
+        "value": 18
+      },
+      {
+        "name": "Div20",
+        "value": 19
+      },
+      {
+        "name": "Div21",
+        "value": 20
+      },
+      {
+        "name": "Div22",
+        "value": 21
+      },
+      {
+        "name": "Div23",
+        "value": 22
+      },
+      {
+        "name": "Div24",
+        "value": 23
+      },
+      {
+        "name": "Div25",
+        "value": 24
+      },
+      {
+        "name": "Div26",
+        "value": 25
+      },
+      {
+        "name": "Div27",
+        "value": 26
+      },
+      {
+        "name": "Div28",
+        "value": 27
+      },
+      {
+        "name": "Div29",
+        "value": 28
+      },
+      {
+        "name": "Div30",
+        "value": 29
+      },
+      {
+        "name": "Div31",
+        "value": 30
+      },
+      {
+        "name": "Div32",
+        "value": 31
+      }
+    ]
+  },
+  "enum/PLLQ": {
+    "bit_size": 3,
+    "variants": [
+      {
+        "name": "Div2",
+        "value": 1
+      },
+      {
+        "name": "Div3",
+        "value": 2
+      },
+      {
+        "name": "Div4",
+        "value": 3
+      },
+      {
+        "name": "Div5",
+        "value": 4
+      },
+      {
+        "name": "Div6",
+        "value": 5
+      },
+      {
+        "name": "Div7",
+        "value": 6
+      },
+      {
+        "name": "Div8",
+        "value": 7
+      }
+    ]
+  },
+  "enum/PLLR": {
+    "bit_size": 3,
+    "variants": [
+      {
+        "name": "Div2",
+        "value": 1
+      },
+      {
+        "name": "Div3",
+        "value": 2
+      },
+      {
+        "name": "Div4",
+        "value": 3
+      },
+      {
+        "name": "Div5",
+        "value": 4
+      },
+      {
+        "name": "Div6",
+        "value": 5
+      },
+      {
+        "name": "Div7",
+        "value": 6
+      },
+      {
+        "name": "Div8",
+        "value": 7
+      }
+    ]
+  },
   "enum/PLLSRC": {
     "bit_size": 2,
     "variants": [
       {
-        "name": "NoClock",
+        "name": "DISABLE",
         "description": "No clock selected as PLL entry clock source",
         "value": 0
       },
       {
-        "name": "HSI16",
-        "description": "HSI16 selected as PLL entry clock source",
+        "name": "HSI",
+        "description": "HSI selected as PLL entry clock source",
         "value": 2
       },
       {
@@ -2270,7 +2828,7 @@
     ]
   },
   "enum/PPRE": {
-    "bit_size": 4,
+    "bit_size": 3,
     "variants": [
       {
         "name": "Div1",
@@ -2328,22 +2886,22 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "NoClock",
+        "name": "DISABLE",
         "description": "No clock used as RNG clock source",
         "value": 0
       },
       {
-        "name": "HSI16_Div8",
+        "name": "HSI_DIV_8",
         "description": "HSI divided by 8 used as RNG clock source",
         "value": 1
       },
       {
-        "name": "SYSCLK",
+        "name": "SYS",
         "description": "SYSCLK used as RNG clock source",
         "value": 2
       },
       {
-        "name": "PLLQCLK",
+        "name": "PLL1_Q",
         "description": "PLLQCLK used as RNG clock source",
         "value": 3
       }
@@ -2353,7 +2911,7 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "NoClock",
+        "name": "DISABLE",
         "description": "No clock used as RTC clock",
         "value": 0
       },
@@ -2388,7 +2946,7 @@
         "value": 1
       },
       {
-        "name": "PLLRCLK",
+        "name": "PLL1_R",
         "description": "PLLRCLK selected as system clock",
         "value": 2
       },
@@ -2408,12 +2966,12 @@
     "bit_size": 1,
     "variants": [
       {
-        "name": "TIMPCLK",
+        "name": "PCLK1_TIM",
         "description": "TIMPCLK used as TIM15 clock source",
         "value": 0
       },
       {
-        "name": "PLLQCLK",
+        "name": "PLL1_Q",
         "description": "PLLQCLK used as TIM15 clock source",
         "value": 1
       }
@@ -2423,88 +2981,38 @@
     "bit_size": 1,
     "variants": [
       {
-        "name": "TIMPCLK",
+        "name": "PCLK1_TIM",
         "description": "TIMPCLK used as TIM1 clock source",
         "value": 0
       },
       {
-        "name": "PLLQCLK",
+        "name": "PLL1_Q",
         "description": "PLLQCLK used as TIM1 clock source",
         "value": 1
       }
     ]
   },
-  "enum/USART1SEL": {
+  "enum/USARTSEL": {
     "bit_size": 2,
     "variants": [
       {
-        "name": "PCLK",
-        "description": "PCLK used as USART1 clock source",
+        "name": "PCLK1",
+        "description": "PCLK used as USART clock source",
         "value": 0
       },
       {
-        "name": "SYSCLK",
-        "description": "SYSCLK used as USART1 clock source",
+        "name": "SYS",
+        "description": "SYSCLK used as USART clock source",
         "value": 1
       },
       {
-        "name": "HSI16",
-        "description": "HSI16 used as USART1 clock source",
+        "name": "HSI",
+        "description": "HSI used as USART clock source",
         "value": 2
       },
       {
         "name": "LSE",
-        "description": "LSE used as USART1 clock source",
-        "value": 3
-      }
-    ]
-  },
-  "enum/USART2SEL": {
-    "bit_size": 2,
-    "variants": [
-      {
-        "name": "PCLK",
-        "description": "PCLK used as USART2 clock source",
-        "value": 0
-      },
-      {
-        "name": "SYSCLK",
-        "description": "SYSCLK used as USART2 clock source",
-        "value": 1
-      },
-      {
-        "name": "HSI16",
-        "description": "HSI16 used as USART2 clock source",
-        "value": 2
-      },
-      {
-        "name": "LSE",
-        "description": "LSE used as USART2 clock source",
-        "value": 3
-      }
-    ]
-  },
-  "enum/USART3SEL": {
-    "bit_size": 2,
-    "variants": [
-      {
-        "name": "PCLK",
-        "description": "PCLK used as USART3 clock source",
-        "value": 0
-      },
-      {
-        "name": "SYSCLK",
-        "description": "SYSCLK used as USART3 clock source",
-        "value": 1
-      },
-      {
-        "name": "HSI16",
-        "description": "HSI16 used as USART3 clock source",
-        "value": 2
-      },
-      {
-        "name": "LSE",
-        "description": "LSE used as USART3 clock source",
+        "description": "LSE used as USART clock source",
         "value": 3
       }
     ]
@@ -2518,13 +3026,13 @@
         "value": 0
       },
       {
-        "name": "PLLQCLK",
-        "description": "PLLQCLK used as USB clock source",
+        "name": "HSE",
+        "description": "HSE used as USB clock source",
         "value": 1
       },
       {
-        "name": "HSE",
-        "description": "HSE used as USB clock source",
+        "name": "PLL1_Q",
+        "description": "PLLQCLK used as USB clock source",
         "value": 2
       }
     ]

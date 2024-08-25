@@ -99,7 +99,7 @@
       },
       {
         "name": "DMACFG",
-        "description": "Direct memery access configuration",
+        "description": "Direct memory access configuration",
         "bit_offset": 1,
         "bit_size": 1,
         "enum": "DMACFG"
@@ -129,8 +129,7 @@
         "name": "EXTSEL",
         "description": "External trigger selection",
         "bit_offset": 6,
-        "bit_size": 3,
-        "enum": "EXTSEL"
+        "bit_size": 3
       },
       {
         "name": "EXTEN",
@@ -148,7 +147,7 @@
       },
       {
         "name": "CONT",
-        "description": "Single / continuous conversion mode",
+        "description": "Continuous conversion",
         "bit_offset": 13,
         "bit_size": 1
       },
@@ -430,12 +429,12 @@
     "variants": [
       {
         "name": "OneShot",
-        "description": "DMA one shot mode",
+        "description": "DMA One Shot mode selected",
         "value": 0
       },
       {
         "name": "Circular",
-        "description": "DMA circular mode",
+        "description": "DMA Circular mode selected",
         "value": 1
       }
     ]
@@ -465,36 +464,6 @@
       }
     ]
   },
-  "enum/EXTSEL": {
-    "bit_size": 3,
-    "variants": [
-      {
-        "name": "TIM1_TRGO",
-        "description": "Timer 1 TRGO Event",
-        "value": 0
-      },
-      {
-        "name": "TIM1_CC4",
-        "description": "Timer 1 CC4 event",
-        "value": 1
-      },
-      {
-        "name": "TIM2_TRGO",
-        "description": "Timer 2 TRGO event",
-        "value": 2
-      },
-      {
-        "name": "TIM3_TRGO",
-        "description": "Timer 3 TRGO event",
-        "value": 3
-      },
-      {
-        "name": "TIM15_TRGO",
-        "description": "Timer 15 TRGO event",
-        "value": 4
-      }
-    ]
-  },
   "enum/OVRMOD": {
     "bit_size": 1,
     "variants": [
@@ -514,22 +483,22 @@
     "bit_size": 2,
     "variants": [
       {
-        "name": "TwelveBit",
+        "name": "Bits12",
         "description": "12-bit (14 ADCCLK cycles)",
         "value": 0
       },
       {
-        "name": "TenBit",
+        "name": "Bits10",
         "description": "10-bit (13 ADCCLK cycles)",
         "value": 1
       },
       {
-        "name": "EightBit",
+        "name": "Bits8",
         "description": "8-bit (11 ADCCLK cycles)",
         "value": 2
       },
       {
-        "name": "SixBit",
+        "name": "Bits6",
         "description": "6-bit (9 ADCCLK cycles)",
         "value": 3
       }
